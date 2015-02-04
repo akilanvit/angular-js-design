@@ -1,0 +1,37 @@
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+      <a class="navbar-brand hidden-xs siteLogo" href="#/home"><span class="ezyHide">ezy<strong>Commerce</strong></span>&nbsp;</a>
+      <a class="navbar-brand visible-xs" href="#/home">ezy</a>
+      <div class="pull-left">
+        <ul class="nav navbar-nav">
+          <li ng-class="isTabActive('home')"><a href="#/home"><span class="glyphicon glyphicon-home"></span><span class="hidden-xs">Dashboard</span></a></li>
+          <li ng-class="isTabActive('products')"><a href="#/products"><span class="glyphicon glyphicon-folder-close"></span><span class="hidden-xs">Products</span></a></li>
+          <li ng-class="isTabActive('shipments')"><a href="#/shipments"><span class="glyphicon glyphicon-share-alt"></span><span class="hidden-xs">Shipments</span></a></li>
+          <li ng-class="isTabActive('orders')"><a href="#/orders"><span class="glyphicon glyphicon-stats"></span><span class="hidden-xs">Orders</span></a></li>
+        </ul>
+      </div>
+      <div class="pull-right">
+        <a href="javascript:;" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="glyphicon glyphicon-tasks"></span>
+            </a>
+      </div>
+      <div class="pull-right">
+        <ul class="nav navbar-nav navbar-collapse collapse">
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="hidden-sm hidden-xs">Krishna </span><span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="mail:krishna@gmail.com">krishna@gmail.com</a></li>
+              <li><a href="#/logout" title="Logout">Logout</a></li>
+            </ul>
+          </li>
+          <li class="glyphicon glyphicon-nav-sep hidden-xs"></li>
+          <li><a href="#/accounts" title="My Account"><span class="glyphicon glyphicon-cog"></span><span class="hidden-sm hidden-xs">My Account</span></a></li>
+          <li class="glyphicon glyphicon-nav-sep hidden-xs"></li>
+          <li><a href="#/help" title="Help"><span class="glyphicon glyphicon-book"></span><span class="hidden-sm hidden-xs">Help</span></a></li>
+          <li class="glyphicon glyphicon-nav-sep hidden-xs"></li>
+          <li><a href="#/notifications" title="Notifications"><span class="glyphicon glyphicon-bullhorn"></span><span class="hidden-sm hidden-xs">Notifications</span></a></li>
+        </ul>
+      </div>
+  </div>
+</header>

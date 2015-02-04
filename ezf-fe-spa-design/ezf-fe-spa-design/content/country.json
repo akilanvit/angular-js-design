@@ -1,0 +1,1444 @@
+{
+"365": {
+"countryId": 365,
+"countryName": "Singapore",
+"isActive": 1,
+"countryCode": "SG",
+"dialCode": "65"
+},
+"1": {
+"countryId": 1,
+"countryName": "USA",
+"isActive": 1,
+"countryCode": "US",
+"dialCode": "1"
+},
+"206": {
+"countryId": 206,
+"countryName": "Algeria",
+"isActive": 1,
+"countryCode": "DZ",
+"dialCode": "213"
+},
+"207": {
+"countryId": 207,
+"countryName": "American Samoa",
+"isActive": 1,
+"countryCode": "AS",
+"dialCode": "1 684"
+},
+"208": {
+"countryId": 208,
+"countryName": "Andorra",
+"isActive": 1,
+"countryCode": "AD",
+"dialCode": "376"
+},
+"209": {
+"countryId": 209,
+"countryName": "Angola",
+"isActive": 1,
+"countryCode": "AO",
+"dialCode": "244"
+},
+"210": {
+"countryId": 210,
+"countryName": "Anguilla",
+"isActive": 1,
+"countryCode": "AI",
+"dialCode": "1 264"
+},
+"211": {
+"countryId": 211,
+"countryName": "Antigua",
+"isActive": 1,
+"countryCode": "AG",
+"dialCode": "268"
+},
+"212": {
+"countryId": 212,
+"countryName": "Argentina",
+"isActive": 1,
+"countryCode": "AR",
+"dialCode": "54"
+},
+"213": {
+"countryId": 213,
+"countryName": "Armenia",
+"isActive": 1,
+"countryCode": "AM",
+"dialCode": "374"
+},
+"214": {
+"countryId": 214,
+"countryName": "Aruba",
+"isActive": 1,
+"countryCode": "AW",
+"dialCode": "297"
+},
+"215": {
+"countryId": 215,
+"countryName": "Australia",
+"isActive": 1,
+"countryCode": "AU",
+"dialCode": "61"
+},
+"216": {
+"countryId": 216,
+"countryName": "Austria",
+"isActive": 1,
+"countryCode": "AT",
+"dialCode": "43"
+},
+"217": {
+"countryId": 217,
+"countryName": "Bahamas",
+"isActive": 1,
+"countryCode": "BS",
+"dialCode": "1 242"
+},
+"218": {
+"countryId": 218,
+"countryName": "Bahrain",
+"isActive": 1,
+"countryCode": "BH",
+"dialCode": "973"
+},
+"219": {
+"countryId": 219,
+"countryName": "Bangladesh",
+"isActive": 1,
+"countryCode": "BD",
+"dialCode": "880"
+},
+"220": {
+"countryId": 220,
+"countryName": "Barbados",
+"isActive": 1,
+"countryCode": "BB",
+"dialCode": "1 246"
+},
+"221": {
+"countryId": 221,
+"countryName": "Belarus",
+"isActive": 1,
+"countryCode": "BY",
+"dialCode": "375"
+},
+"222": {
+"countryId": 222,
+"countryName": "Belgium",
+"isActive": 1,
+"countryCode": "BE",
+"dialCode": "32"
+},
+"223": {
+"countryId": 223,
+"countryName": "Belize",
+"isActive": 1,
+"countryCode": "BZ",
+"dialCode": "501"
+},
+"224": {
+"countryId": 224,
+"countryName": "Benin",
+"isActive": 1,
+"countryCode": "BJ",
+"dialCode": "229"
+},
+"225": {
+"countryId": 225,
+"countryName": "Bermuda",
+"isActive": 1,
+"countryCode": "BM",
+"dialCode": "1 441"
+},
+"226": {
+"countryId": 226,
+"countryName": "Bhutan",
+"isActive": 1,
+"countryCode": "BT",
+"dialCode": "975"
+},
+"227": {
+"countryId": 227,
+"countryName": "Bolivia",
+"isActive": 1,
+"countryCode": "BO",
+"dialCode": "591"
+},
+"228": {
+"countryId": 228,
+"countryName": "Bonaire",
+"isActive": 1,
+"countryCode": "BQ",
+"dialCode": "599"
+},
+"229": {
+"countryId": 229,
+"countryName": "Botswana",
+"isActive": 1,
+"countryCode": "BW",
+"dialCode": "267"
+},
+"230": {
+"countryId": 230,
+"countryName": "Brazil",
+"isActive": 1,
+"countryCode": "BR",
+"dialCode": "55"
+},
+"231": {
+"countryId": 231,
+"countryName": "Brunei",
+"isActive": 1,
+"countryCode": "BN",
+"dialCode": "673"
+},
+"232": {
+"countryId": 232,
+"countryName": "Bulgaria",
+"isActive": 1,
+"countryCode": "BG",
+"dialCode": "359"
+},
+"233": {
+"countryId": 233,
+"countryName": "Burkina Faso",
+"isActive": 1,
+"countryCode": "BF",
+"dialCode": "226"
+},
+"234": {
+"countryId": 234,
+"countryName": "Burundi",
+"isActive": 1,
+"countryCode": "BI",
+"dialCode": "257"
+},
+"235": {
+"countryId": 235,
+"countryName": "Cambodia",
+"isActive": 1,
+"countryCode": "KH",
+"dialCode": "855"
+},
+"236": {
+"countryId": 236,
+"countryName": "Cameroon",
+"isActive": 1,
+"countryCode": "CM",
+"dialCode": "237"
+},
+"237": {
+"countryId": 237,
+"countryName": "Canada",
+"isActive": 1,
+"countryCode": "CA",
+"dialCode": "1"
+},
+"238": {
+"countryId": 238,
+"countryName": "Canary Islands",
+"isActive": 1,
+"countryCode": "IC",
+"dialCode": "34"
+},
+"239": {
+"countryId": 239,
+"countryName": "Cape Verde",
+"isActive": 1,
+"countryCode": "CV",
+"dialCode": "238"
+},
+"240": {
+"countryId": 240,
+"countryName": "Cayman Islands",
+"isActive": 1,
+"countryCode": "KY",
+"dialCode": "1 345"
+},
+"241": {
+"countryId": 241,
+"countryName": "Chad",
+"isActive": 1,
+"countryCode": "TD",
+"dialCode": "235"
+},
+"242": {
+"countryId": 242,
+"countryName": "Chile",
+"isActive": 1,
+"countryCode": "CL",
+"dialCode": "56"
+},
+"243": {
+"countryId": 243,
+"countryName": "China",
+"isActive": 1,
+"countryCode": "CN",
+"dialCode": "86"
+},
+"244": {
+"countryId": 244,
+"countryName": "Colombia",
+"isActive": 1,
+"countryCode": "CO",
+"dialCode": "57"
+},
+"245": {
+"countryId": 245,
+"countryName": "Comoros",
+"isActive": 1,
+"countryCode": "KM",
+"dialCode": "269"
+},
+"246": {
+"countryId": 246,
+"countryName": "Congo",
+"isActive": 1,
+"countryCode": "CG",
+"dialCode": "242"
+},
+"247": {
+"countryId": 247,
+"countryName": "Cook Islands",
+"isActive": 1,
+"countryCode": "CK",
+"dialCode": "682"
+},
+"248": {
+"countryId": 248,
+"countryName": "Costa Rica",
+"isActive": 1,
+"countryCode": "CR",
+"dialCode": "506"
+},
+"249": {
+"countryId": 249,
+"countryName": "Croatia",
+"isActive": 1,
+"countryCode": "HR",
+"dialCode": "385"
+},
+"250": {
+"countryId": 250,
+"countryName": "Cuba",
+"isActive": 1,
+"countryCode": "CU",
+"dialCode": "53"
+},
+"251": {
+"countryId": 251,
+"countryName": "Curacao",
+"isActive": 1,
+"countryCode": "CW",
+"dialCode": "599"
+},
+"252": {
+"countryId": 252,
+"countryName": "Cyprus",
+"isActive": 1,
+"countryCode": "CY",
+"dialCode": "357"
+},
+"253": {
+"countryId": 253,
+"countryName": "Czech Republic",
+"isActive": 1,
+"countryCode": "CZ",
+"dialCode": "420"
+},
+"254": {
+"countryId": 254,
+"countryName": "Denmark",
+"isActive": 1,
+"countryCode": "DK",
+"dialCode": "45"
+},
+"255": {
+"countryId": 255,
+"countryName": "Djibouti",
+"isActive": 1,
+"countryCode": "DJ",
+"dialCode": "253"
+},
+"256": {
+"countryId": 256,
+"countryName": "Dominica",
+"isActive": 1,
+"countryCode": "DM",
+"dialCode": "1 767"
+},
+"257": {
+"countryId": 257,
+"countryName": "Dominican Republic",
+"isActive": 1,
+"countryCode": "DO",
+"dialCode": "1 809"
+},
+"258": {
+"countryId": 258,
+"countryName": "Ecuador",
+"isActive": 1,
+"countryCode": "EC",
+"dialCode": "593"
+},
+"259": {
+"countryId": 259,
+"countryName": "Egypt",
+"isActive": 1,
+"countryCode": "EG",
+"dialCode": "20"
+},
+"260": {
+"countryId": 260,
+"countryName": "El Salvador",
+"isActive": 1,
+"countryCode": "SV",
+"dialCode": "503"
+},
+"261": {
+"countryId": 261,
+"countryName": "Equatorial Guinea",
+"isActive": 1,
+"countryCode": "GQ",
+"dialCode": "240"
+},
+"262": {
+"countryId": 262,
+"countryName": "Eritrea",
+"isActive": 1,
+"countryCode": "ER",
+"dialCode": "291"
+},
+"263": {
+"countryId": 263,
+"countryName": "Ethiopia",
+"isActive": 1,
+"countryCode": "ET",
+"dialCode": "251"
+},
+"264": {
+"countryId": 264,
+"countryName": "Faroe Islands",
+"isActive": 1,
+"countryCode": "FO",
+"dialCode": "298"
+},
+"265": {
+"countryId": 265,
+"countryName": "Fiji",
+"isActive": 1,
+"countryCode": "FJ",
+"dialCode": "679"
+},
+"266": {
+"countryId": 266,
+"countryName": "Finland",
+"isActive": 1,
+"countryCode": "FI",
+"dialCode": "358"
+},
+"267": {
+"countryId": 267,
+"countryName": "France",
+"isActive": 1,
+"countryCode": "FR",
+"dialCode": "33"
+},
+"268": {
+"countryId": 268,
+"countryName": "French Guiana",
+"isActive": 1,
+"countryCode": "GF",
+"dialCode": "594"
+},
+"269": {
+"countryId": 269,
+"countryName": "Gabon",
+"isActive": 1,
+"countryCode": "GA",
+"dialCode": "241"
+},
+"270": {
+"countryId": 270,
+"countryName": "Gambia",
+"isActive": 1,
+"countryCode": "GM",
+"dialCode": "220"
+},
+"271": {
+"countryId": 271,
+"countryName": "Georgia",
+"isActive": 1,
+"countryCode": "GE",
+"dialCode": "995"
+},
+"272": {
+"countryId": 272,
+"countryName": "Germany",
+"isActive": 1,
+"countryCode": "DE",
+"dialCode": "49"
+},
+"273": {
+"countryId": 273,
+"countryName": "Ghana",
+"isActive": 1,
+"countryCode": "GH",
+"dialCode": "233"
+},
+"274": {
+"countryId": 274,
+"countryName": "Gibraltar",
+"isActive": 1,
+"countryCode": "GI",
+"dialCode": "350"
+},
+"275": {
+"countryId": 275,
+"countryName": "Greece",
+"isActive": 1,
+"countryCode": "GR",
+"dialCode": "30"
+},
+"276": {
+"countryId": 276,
+"countryName": "Greenland",
+"isActive": 1,
+"countryCode": "GL",
+"dialCode": "299"
+},
+"277": {
+"countryId": 277,
+"countryName": "Grenada",
+"isActive": 1,
+"countryCode": "GD",
+"dialCode": "1 473"
+},
+"278": {
+"countryId": 278,
+"countryName": "Guadeloupe",
+"isActive": 1,
+"countryCode": "GP",
+"dialCode": "590"
+},
+"279": {
+"countryId": 279,
+"countryName": "Guam",
+"isActive": 1,
+"countryCode": "GU",
+"dialCode": "1 671"
+},
+"280": {
+"countryId": 280,
+"countryName": "Guatemala",
+"isActive": 1,
+"countryCode": "GT",
+"dialCode": "502"
+},
+"281": {
+"countryId": 281,
+"countryName": "Guinea Republic",
+"isActive": 1,
+"countryCode": "GN",
+"dialCode": "224"
+},
+"282": {
+"countryId": 282,
+"countryName": "Guyana British",
+"isActive": 1,
+"countryCode": "GY",
+"dialCode": "592"
+},
+"283": {
+"countryId": 283,
+"countryName": "Haiti",
+"isActive": 1,
+"countryCode": "HT",
+"dialCode": "509"
+},
+"284": {
+"countryId": 284,
+"countryName": "Honduras",
+"isActive": 1,
+"countryCode": "HN",
+"dialCode": "504"
+},
+"285": {
+"countryId": 285,
+"countryName": "Hong Kong",
+"isActive": 1,
+"countryCode": "HK",
+"dialCode": "852"
+},
+"286": {
+"countryId": 286,
+"countryName": "Hungary",
+"isActive": 1,
+"countryCode": "HU",
+"dialCode": "36"
+},
+"287": {
+"countryId": 287,
+"countryName": "Iceland",
+"isActive": 1,
+"countryCode": "IS",
+"dialCode": "354"
+},
+"288": {
+"countryId": 288,
+"countryName": "India",
+"isActive": 1,
+"countryCode": "IN",
+"dialCode": "91"
+},
+"289": {
+"countryId": 289,
+"countryName": "Iran",
+"isActive": 1,
+"countryCode": "IR",
+"dialCode": "98"
+},
+"290": {
+"countryId": 290,
+"countryName": "Ireland",
+"isActive": 1,
+"countryCode": "IE",
+"dialCode": "353"
+},
+"291": {
+"countryId": 291,
+"countryName": "Israel",
+"isActive": 1,
+"countryCode": "IL",
+"dialCode": "972"
+},
+"292": {
+"countryId": 292,
+"countryName": "Italy",
+"isActive": 1,
+"countryCode": "IT",
+"dialCode": "39"
+},
+"293": {
+"countryId": 293,
+"countryName": "Ivory Coast",
+"isActive": 1,
+"countryCode": "CI",
+"dialCode": "225"
+},
+"294": {
+"countryId": 294,
+"countryName": "Jamaica",
+"isActive": 1,
+"countryCode": "JM",
+"dialCode": "1 876"
+},
+"295": {
+"countryId": 295,
+"countryName": "Japan",
+"isActive": 1,
+"countryCode": "JP",
+"dialCode": "81"
+},
+"296": {
+"countryId": 296,
+"countryName": "Jordan",
+"isActive": 1,
+"countryCode": "JO",
+"dialCode": "962"
+},
+"297": {
+"countryId": 297,
+"countryName": "Kazakhstan",
+"isActive": 1,
+"countryCode": "KZ",
+"dialCode": "7"
+},
+"298": {
+"countryId": 298,
+"countryName": "Kenya",
+"isActive": 1,
+"countryCode": "KE",
+"dialCode": "254"
+},
+"299": {
+"countryId": 299,
+"countryName": "Kiribati",
+"isActive": 1,
+"countryCode": "KI",
+"dialCode": "686"
+},
+"300": {
+"countryId": 300,
+"countryName": "Korea",
+"isActive": 1,
+"countryCode": "KP",
+"dialCode": "82"
+},
+"301": {
+"countryId": 301,
+"countryName": "Kuwait",
+"isActive": 1,
+"countryCode": "KW",
+"dialCode": "965"
+},
+"302": {
+"countryId": 302,
+"countryName": "Kyrgyzstan",
+"isActive": 1,
+"countryCode": "KG",
+"dialCode": "996"
+},
+"303": {
+"countryId": 303,
+"countryName": "Laos",
+"isActive": 1,
+"countryCode": "LA",
+"dialCode": "856"
+},
+"304": {
+"countryId": 304,
+"countryName": "Latvia",
+"isActive": 1,
+"countryCode": "LV",
+"dialCode": "371"
+},
+"305": {
+"countryId": 305,
+"countryName": "Lebanon",
+"isActive": 1,
+"countryCode": "LB",
+"dialCode": "961"
+},
+"306": {
+"countryId": 306,
+"countryName": "Lesotho",
+"isActive": 1,
+"countryCode": "LS",
+"dialCode": "266"
+},
+"307": {
+"countryId": 307,
+"countryName": "Liberia",
+"isActive": 1,
+"countryCode": "LR",
+"dialCode": "231"
+},
+"308": {
+"countryId": 308,
+"countryName": "Libya",
+"isActive": 1,
+"countryCode": "LY",
+"dialCode": "218"
+},
+"309": {
+"countryId": 309,
+"countryName": "Liechtenstein",
+"isActive": 1,
+"countryCode": "LI",
+"dialCode": "423"
+},
+"310": {
+"countryId": 310,
+"countryName": "Lithuania",
+"isActive": 1,
+"countryCode": "LT",
+"dialCode": "370"
+},
+"311": {
+"countryId": 311,
+"countryName": "Luxembourg",
+"isActive": 1,
+"countryCode": "LU",
+"dialCode": "352"
+},
+"312": {
+"countryId": 312,
+"countryName": "Macau",
+"isActive": 1,
+"countryCode": "MO",
+"dialCode": "853"
+},
+"313": {
+"countryId": 313,
+"countryName": "Macedonia",
+"isActive": 1,
+"countryCode": "MK",
+"dialCode": "389"
+},
+"314": {
+"countryId": 314,
+"countryName": "Madagascar",
+"isActive": 1,
+"countryCode": "MG",
+"dialCode": "261"
+},
+"315": {
+"countryId": 315,
+"countryName": "Malawi",
+"isActive": 1,
+"countryCode": "MW",
+"dialCode": "265"
+},
+"316": {
+"countryId": 316,
+"countryName": "Maldives",
+"isActive": 1,
+"countryCode": "MV",
+"dialCode": "960"
+},
+"317": {
+"countryId": 317,
+"countryName": "Mali",
+"isActive": 1,
+"countryCode": "ML",
+"dialCode": "223"
+},
+"318": {
+"countryId": 318,
+"countryName": "Malta",
+"isActive": 1,
+"countryCode": "MT",
+"dialCode": "356"
+},
+"319": {
+"countryId": 319,
+"countryName": "Marshall Islands",
+"isActive": 1,
+"countryCode": "MH",
+"dialCode": "692"
+},
+"320": {
+"countryId": 320,
+"countryName": "Martinique",
+"isActive": 1,
+"countryCode": "MQ",
+"dialCode": "596"
+},
+"321": {
+"countryId": 321,
+"countryName": "Mauritania",
+"isActive": 1,
+"countryCode": "MR",
+"dialCode": "222"
+},
+"322": {
+"countryId": 322,
+"countryName": "Mauritius",
+"isActive": 1,
+"countryCode": "MU",
+"dialCode": "230"
+},
+"323": {
+"countryId": 323,
+"countryName": "Mexico",
+"isActive": 1,
+"countryCode": "MX",
+"dialCode": "52"
+},
+"324": {
+"countryId": 324,
+"countryName": "Micronesia",
+"isActive": 1,
+"countryCode": "FM",
+"dialCode": "691"
+},
+"325": {
+"countryId": 325,
+"countryName": "Moldova",
+"isActive": 1,
+"countryCode": "MD",
+"dialCode": "373"
+},
+"326": {
+"countryId": 326,
+"countryName": "Monaco",
+"isActive": 1,
+"countryCode": "MC",
+"dialCode": "377"
+},
+"327": {
+"countryId": 327,
+"countryName": "Mongolia",
+"isActive": 1,
+"countryCode": "MN",
+"dialCode": "976"
+},
+"328": {
+"countryId": 328,
+"countryName": "Montserrat",
+"isActive": 1,
+"countryCode": "MS",
+"dialCode": "1 664"
+},
+"329": {
+"countryId": 329,
+"countryName": "Morocco",
+"isActive": 1,
+"countryCode": "MA",
+"dialCode": "212"
+},
+"330": {
+"countryId": 330,
+"countryName": "Mozambique",
+"isActive": 1,
+"countryCode": "MZ",
+"dialCode": "258"
+},
+"331": {
+"countryId": 331,
+"countryName": "Myanmar",
+"isActive": 1,
+"countryCode": "MM",
+"dialCode": "95"
+},
+"332": {
+"countryId": 332,
+"countryName": "Namibia",
+"isActive": 1,
+"countryCode": "NA",
+"dialCode": "264"
+},
+"333": {
+"countryId": 333,
+"countryName": "Nauru",
+"isActive": 1,
+"countryCode": "NR",
+"dialCode": "674"
+},
+"334": {
+"countryId": 334,
+"countryName": "Nepal",
+"isActive": 1,
+"countryCode": "NP",
+"dialCode": "977"
+},
+"335": {
+"countryId": 335,
+"countryName": "Netherlands",
+"isActive": 1,
+"countryCode": "NL",
+"dialCode": "31"
+},
+"336": {
+"countryId": 336,
+"countryName": "Nevis",
+"isActive": 1,
+"countryCode": "KN",
+"dialCode": "869"
+},
+"337": {
+"countryId": 337,
+"countryName": "New Caledonia",
+"isActive": 1,
+"countryCode": "NC",
+"dialCode": "687"
+},
+"338": {
+"countryId": 338,
+"countryName": "New Zealand",
+"isActive": 1,
+"countryCode": "NZ",
+"dialCode": "64"
+},
+"339": {
+"countryId": 339,
+"countryName": "Nicaragua",
+"isActive": 1,
+"countryCode": "NI",
+"dialCode": "505"
+},
+"340": {
+"countryId": 340,
+"countryName": "Niger",
+"isActive": 1,
+"countryCode": "NE",
+"dialCode": "227"
+},
+"341": {
+"countryId": 341,
+"countryName": "Nigeria",
+"isActive": 1,
+"countryCode": "NG",
+"dialCode": "234"
+},
+"342": {
+"countryId": 342,
+"countryName": "Niue",
+"isActive": 1,
+"countryCode": "NU",
+"dialCode": "683"
+},
+"343": {
+"countryId": 343,
+"countryName": "Norway",
+"isActive": 1,
+"countryCode": "NO",
+"dialCode": "47"
+},
+"344": {
+"countryId": 344,
+"countryName": "Oman",
+"isActive": 1,
+"countryCode": "OM",
+"dialCode": "968"
+},
+"345": {
+"countryId": 345,
+"countryName": "Pakistan",
+"isActive": 1,
+"countryCode": "PK",
+"dialCode": "92"
+},
+"346": {
+"countryId": 346,
+"countryName": "Panama",
+"isActive": 1,
+"countryCode": "PA",
+"dialCode": "507"
+},
+"347": {
+"countryId": 347,
+"countryName": "Papua New Guinea",
+"isActive": 1,
+"countryCode": "PG",
+"dialCode": "675"
+},
+"348": {
+"countryId": 348,
+"countryName": "Paraguay",
+"isActive": 1,
+"countryCode": "PY",
+"dialCode": "595"
+},
+"349": {
+"countryId": 349,
+"countryName": "Peru",
+"isActive": 1,
+"countryCode": "PE",
+"dialCode": "51"
+},
+"350": {
+"countryId": 350,
+"countryName": "Philippines",
+"isActive": 1,
+"countryCode": "PH",
+"dialCode": "63"
+},
+"351": {
+"countryId": 351,
+"countryName": "Poland",
+"isActive": 1,
+"countryCode": "PL",
+"dialCode": "48"
+},
+"352": {
+"countryId": 352,
+"countryName": "Portugal",
+"isActive": 1,
+"countryCode": "PT",
+"dialCode": "351"
+},
+"354": {
+"countryId": 354,
+"countryName": "Qatar",
+"isActive": 1,
+"countryCode": "QA",
+"dialCode": "974"
+},
+"355": {
+"countryId": 355,
+"countryName": "Reunion Island",
+"isActive": 1,
+"countryCode": "RE",
+"dialCode": "262"
+},
+"356": {
+"countryId": 356,
+"countryName": "Romania",
+"isActive": 1,
+"countryCode": "RO",
+"dialCode": "40"
+},
+"357": {
+"countryId": 357,
+"countryName": "Russian Federation",
+"isActive": 1,
+"countryCode": "RU",
+"dialCode": "7"
+},
+"358": {
+"countryId": 358,
+"countryName": "Rwanda",
+"isActive": 1,
+"countryCode": "RW",
+"dialCode": "250"
+},
+"359": {
+"countryId": 359,
+"countryName": "Saipan",
+"isActive": 1,
+"countryCode": "MP",
+"dialCode": "670"
+},
+"360": {
+"countryId": 360,
+"countryName": "Sao Tome and Principe",
+"isActive": 1,
+"countryCode": "ST",
+"dialCode": "239"
+},
+"361": {
+"countryId": 361,
+"countryName": "Saudi Arabia",
+"isActive": 1,
+"countryCode": "SA",
+"dialCode": "966"
+},
+"362": {
+"countryId": 362,
+"countryName": "Senegal",
+"isActive": 1,
+"countryCode": "SN",
+"dialCode": "221"
+},
+"363": {
+"countryId": 363,
+"countryName": "Seychelles",
+"isActive": 1,
+"countryCode": "SC",
+"dialCode": "248"
+},
+"364": {
+"countryId": 364,
+"countryName": "Sierra Leone",
+"isActive": 1,
+"countryCode": "SL",
+"dialCode": "232"
+},
+"366": {
+"countryId": 366,
+"countryName": "Slovakia",
+"isActive": 1,
+"countryCode": "SK",
+"dialCode": "421"
+},
+"367": {
+"countryId": 367,
+"countryName": "Slovenia",
+"isActive": 1,
+"countryCode": "SI",
+"dialCode": "386"
+},
+"368": {
+"countryId": 368,
+"countryName": "Solomon Islands",
+"isActive": 1,
+"countryCode": "SB",
+"dialCode": "677"
+},
+"369": {
+"countryId": 369,
+"countryName": "South Africa",
+"isActive": 1,
+"countryCode": "ZA",
+"dialCode": "27"
+},
+"370": {
+"countryId": 370,
+"countryName": "Spain",
+"isActive": 1,
+"countryCode": "ES",
+"dialCode": "34"
+},
+"371": {
+"countryId": 371,
+"countryName": "Sri Lanka",
+"isActive": 1,
+"countryCode": "LK",
+"dialCode": "94"
+},
+"372": {
+"countryId": 372,
+"countryName": "St Kitts",
+"isActive": 1,
+"countryCode": "KN",
+"dialCode": "869"
+},
+"373": {
+"countryId": 373,
+"countryName": "St Lucia",
+"isActive": 1,
+"countryCode": "LC",
+"dialCode": "758"
+},
+"374": {
+"countryId": 374,
+"countryName": "St Maarten",
+"isActive": 1,
+"countryCode": "MF",
+"dialCode": "721"
+},
+"375": {
+"countryId": 375,
+"countryName": "St Vincent",
+"isActive": 1,
+"countryCode": "VC",
+"dialCode": "784"
+},
+"376": {
+"countryId": 376,
+"countryName": "Sudan",
+"isActive": 1,
+"countryCode": "SD",
+"dialCode": "249"
+},
+"377": {
+"countryId": 377,
+"countryName": "Suriname",
+"isActive": 1,
+"countryCode": "SR",
+"dialCode": "597"
+},
+"378": {
+"countryId": 378,
+"countryName": "Swaziland",
+"isActive": 1,
+"countryCode": "SZ",
+"dialCode": "268"
+},
+"379": {
+"countryId": 379,
+"countryName": "Sweden",
+"isActive": 1,
+"countryCode": "SE",
+"dialCode": "46"
+},
+"380": {
+"countryId": 380,
+"countryName": "Switzerland",
+"isActive": 1,
+"countryCode": "CH",
+"dialCode": "41"
+},
+"381": {
+"countryId": 381,
+"countryName": "Syria",
+"isActive": 1,
+"countryCode": "SY",
+"dialCode": "963"
+},
+"382": {
+"countryId": 382,
+"countryName": "Tahiti",
+"isActive": 1,
+"countryCode": "PF",
+"dialCode": "689"
+},
+"383": {
+"countryId": 383,
+"countryName": "Taiwan",
+"isActive": 1,
+"countryCode": "TW",
+"dialCode": "886"
+},
+"384": {
+"countryId": 384,
+"countryName": "Tajikistan",
+"isActive": 1,
+"countryCode": "TJ",
+"dialCode": "992"
+},
+"385": {
+"countryId": 385,
+"countryName": "Tanzania",
+"isActive": 1,
+"countryCode": "TZ",
+"dialCode": "255"
+},
+"386": {
+"countryId": 386,
+"countryName": "Thailand",
+"isActive": 1,
+"countryCode": "TH",
+"dialCode": "66"
+},
+"387": {
+"countryId": 387,
+"countryName": "Togo",
+"isActive": 1,
+"countryCode": "TG",
+"dialCode": "228"
+},
+"388": {
+"countryId": 388,
+"countryName": "Tonga",
+"isActive": 1,
+"countryCode": "TO",
+"dialCode": "676"
+},
+"389": {
+"countryId": 389,
+"countryName": "Trinidad and Tobago",
+"isActive": 1,
+"countryCode": "TT",
+"dialCode": "1 868"
+},
+"390": {
+"countryId": 390,
+"countryName": "Turkey",
+"isActive": 1,
+"countryCode": "TR",
+"dialCode": "90"
+},
+"391": {
+"countryId": 391,
+"countryName": "Turkmenistan",
+"isActive": 1,
+"countryCode": "TM",
+"dialCode": "993"
+},
+"392": {
+"countryId": 392,
+"countryName": "Turks and Caicos Islands",
+"isActive": 1,
+"countryCode": "TC",
+"dialCode": "1 649"
+},
+"393": {
+"countryId": 393,
+"countryName": "Tuvala",
+"isActive": 1,
+"countryCode": "TV",
+"dialCode": "688"
+},
+"394": {
+"countryId": 394,
+"countryName": "Uganda",
+"isActive": 1,
+"countryCode": "UG",
+"dialCode": "256"
+},
+"395": {
+"countryId": 395,
+"countryName": "Ukraine",
+"isActive": 1,
+"countryCode": "UA",
+"dialCode": "380"
+},
+"396": {
+"countryId": 396,
+"countryName": "United Arab Emirates",
+"isActive": 1,
+"countryCode": "AE",
+"dialCode": "971"
+},
+"397": {
+"countryId": 397,
+"countryName": "United Kingdom",
+"isActive": 1,
+"countryCode": "GB",
+"dialCode": "44"
+},
+"398": {
+"countryId": 398,
+"countryName": "Uruguay",
+"isActive": 1,
+"countryCode": "UY",
+"dialCode": "598"
+},
+"399": {
+"countryId": 399,
+"countryName": "Uzbekistan",
+"isActive": 1,
+"countryCode": "UZ",
+"dialCode": "998"
+},
+"400": {
+"countryId": 400,
+"countryName": "Vanuatu",
+"isActive": 1,
+"countryCode": "VU",
+"dialCode": "678"
+},
+"401": {
+"countryId": 401,
+"countryName": "Venezuela",
+"isActive": 1,
+"countryCode": "VE",
+"dialCode": "58"
+},
+"402": {
+"countryId": 402,
+"countryName": "Vietnam",
+"isActive": 1,
+"countryCode": "VN",
+"dialCode": "84"
+},
+"403": {
+"countryId": 403,
+"countryName": "Virgin Islands British",
+"isActive": 1,
+"countryCode": "VG",
+"dialCode": "284"
+},
+"404": {
+"countryId": 404,
+"countryName": "Virgin Islands US",
+"isActive": 1,
+"countryCode": "VI",
+"dialCode": "340"
+},
+"405": {
+"countryId": 405,
+"countryName": "Western Samoa",
+"isActive": 1,
+"countryCode": "WS",
+"dialCode": "685"
+},
+"406": {
+"countryId": 406,
+"countryName": "Yugoslavia",
+"isActive": 1,
+"countryCode": "YU",
+"dialCode": "38"
+},
+"407": {
+"countryId": 407,
+"countryName": "Zambia",
+"isActive": 1,
+"countryCode": "ZM",
+"dialCode": "260"
+},
+"408": {
+"countryId": 408,
+"countryName": "Zimbabwe",
+"isActive": 1,
+"countryCode": "ZW",
+"dialCode": "263"
+},
+"409": {
+"countryId": 409,
+"countryName": "Others",
+"isActive": 1,
+"countryCode": "OT",
+"dialCode": "999"
+},
+"411": {
+"countryId": 411,
+"countryName": "Indonesia",
+"isActive": 1,
+"countryCode": "ID",
+"dialCode": "62"
+},
+"412": {
+"countryId": 412,
+"countryName": "Malaysia",
+"isActive": 1,
+"countryCode": "MY",
+"dialCode": "60"
+}
+}

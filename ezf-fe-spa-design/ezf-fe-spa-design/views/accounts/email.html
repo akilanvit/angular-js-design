@@ -1,0 +1,206 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full widget-form">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form"  name="pref-email" novalidate angular-validator angular-validator-submit="">
+              <h2 class="thHead">Email Preferences</h2>
+              <div class="container-fluid">
+                <div class="row paddbtm30">
+                 <div class="col-sm-12 col-lg-9 paddnone" >
+                      <div class="thHeadIco glyphicon glyphicon-folder-close col-lg-1 col-sm-1 hidden-xs"></div>
+                        <div class="thContent col-lg-11 col-sm-10">
+                          You can control what email notifications to receive. This will be sent to your registered email as well as all other sub-users.
+                      </div>
+                    </div>
+                </div>
+              </div>
+                <div class="clear"></div>
+              <div class="panel-group">
+                <div class="row paddbtm20 xstxt-padd0">
+                  <div class="panel panel-default col-md-6 col-sm-12 col-xs-12 xstxt-padd0 smtxt-padd0 paddrgt20">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="pref-email-products">Products</a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body padall2">
+                        <div class="row">
+                          <div class="col-md-1 col-sm-1 col-xs-1">
+                            <input type="checkbox" id="pref-email-product-upload" class="chkpadd" name="pref-email-product-upload" ng-model="model.isProductUpload">
+                          </div>
+                          <div class="col-md-11 col-sm-11 col-xs-10">
+                             <div class="form-group">
+                                <label class="control-label"> Email me when Product upload is completed </label>    
+                                <div class="col-sm-12">
+                                  <em class="text-muted">The validation report will be present in attachments if any</em>
+                                </div>
+                            </div> 
+                          </div>
+                          <div class="col-md-1 col-sm-1 col-xs-1">
+                            <input type="checkbox" id="pref-email-product-dimUpdated" class="chkpadd" name="pref-email-product-dimUpdated" ng-model="model.isProductDimUpdated">
+                          </div>
+                          <div class="col-md-11 col-sm-11 col-xs-10">
+                             <div class="form-group">
+                                <label class="control-label"> Email me when a Product's dimension is updated by EZC  </label>              
+                            </div> 
+                          </div>
+                          <div class="col-md-1 col-sm-1 col-xs-1">
+                            <input type="checkbox" id="pref-email-product-invAlertLevel" class="chkpadd" name="pref-email-product-invAlertLevel" ng-model="model.isProductInvAlertlevel">
+                          </div>
+                          <div class="col-md-11 col-sm-11 col-xs-10">
+                            <div class="form-group">
+                              <label class="control-label"> Email me when Product Inventory Fulfillable falls below the corresponding Inventory Alert Level</label>
+                            </div> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default col-md-6 col-sm-12 col-xs-12 paddnone">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="pref-shipment">Shipments</a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body padall2">
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-shipment-upload" class="chkpadd" name="pref-shipment-upload" ng-model="model.isShipmentUpload">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                           <div class="form-group">
+                              <label class="control-label">Email me when Shipment upload is completed</label>     
+                              <div class="col-sm-12">
+                                <em class="text-muted">The validation report will be present in attachments if any</em>
+                              </div>         
+                          </div> 
+                        </div>
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-shipment-inTransit" class="chkpadd" name="pref-shipment-inTransit" ng-model="model.isShipmentInTransit">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                           <div class="form-group">
+                              <label class="control-label">Email me when a Shipment status changes to 'In Transit'</label>              
+                          </div> 
+                        </div>
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-shipment-received" class="chkpadd" name="pref-shipment-received" ng-model="model.isShipmentReceived">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                          <div class="form-group">
+                            <label class="control-label">Email me when Shipment status changes to 'Received'</label>              
+                          </div> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row paddbtm20 xstxt-padd0">
+                  <div class="panel panel-default col-md-6 col-sm-12 col-xs-12 xstxt-padd0 smtxt-padd0 paddrgt20">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="pref-order">Orders</a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body padall2">
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-order-upload" class="chkpadd" name="pref-order-upload" ng-model="model.isOrderUpload">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                           <div class="form-group">
+                              <label class="control-label">Email me when Order upload is completed</label>   
+                              <div class="col-sm-12">
+                                <em class="text-muted">The validation report will be present in attachments if any</em>
+                              </div>           
+                          </div> 
+                        </div>
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-order-hasIssues" class="chkpadd" name="pref-order-hasIssues" ng-model="model.isOrderHasIssues">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                           <div class="form-group">
+                              <label class="control-label">Email me when an Order status changes to Pending - Has Issues</label>              
+                          </div> 
+                        </div>
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-order-unapproved" class="chkpadd" name="pref-order-unapproved" ng-model="model.isOrderUnapproved">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                           <div class="form-group">
+                              <label class="control-label">Email me when an Order status changes to Pending - Unaprroved</label>              
+                          </div> 
+                        </div>
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-order-inProcess" class="chkpadd" name="pref-order-inProcess" ng-model="model.isOrderInProcess">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                           <div class="form-group">
+                              <label class="control-label"> Email me when an Order status changes to 'In Process'</label>              
+                          </div> 
+                        </div>
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-order-shipped" class="chkpadd" name="pref-order-shipped" ng-model="model.isOrderShipped">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                           <div class="form-group">
+                              <label class="control-label">Email me when an Order status changes to 'Shipped' </label>              
+                          </div> 
+                        </div>
+                         <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-order-delivered" class="chkpadd" name="pref-order-delivered" ng-model="model.isOrderDelivered">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                          <div class="form-group">
+                            <label class="control-label">Email me when an Order status changes to 'Delivered' </label>              
+                          </div> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default col-md-6 col-sm-12 col-xs-12 paddnone">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="pref-others">Others</a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body padall2">
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-others-summary-pendingItems" class="chkpadd" name="pref-others-summary-pendingItems" ng-model="model.isSummaryPendingItems">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                           <div class="form-group">
+                              <label class="control-label">Email me a daily summary on all Pending items (Shipments and Orders) </label>              
+                          </div> 
+                        </div>
+                         <div class="col-md-1 col-sm-1 col-xs-1">
+                          <input type="checkbox" id="pref-others-monthly-invoice" class="chkpadd" name="pref-others-monthly-invoice" ng-model="model.isMonthlyInvoice">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-10">
+                          <div class="form-group">
+                            <label class="control-label">Email me when monthly invoice is ready to view</label>              
+                          </div> 
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="btn-grp pull-right formbtn">
+                <div class="form-xsbtnbtm pull-right">
+                  <button id="pref-email-save-btm" class="btn btn-primary" type="submit">Save</button>
+                  <button id="pref-email-cancel-btm" type="button" class="btn btn-default" ng-click="back()">Cancel</button>              
+                </div>
+              </div>
+            </form>
+          </div>
+         </div>
+       </section>
+    </div>
+  </div>
+</section>

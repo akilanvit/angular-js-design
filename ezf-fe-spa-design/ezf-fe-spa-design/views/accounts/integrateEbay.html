@@ -1,0 +1,55 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form" class="form-horizontal" name="edit_product"
+              novalidate angular-validator angular-validator-submit="">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="pull-left">Integrate with eBay</h2>
+                </div>
+              </div>
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <img src="images/ebay.jpg" height="75" width="75" alt="Shopify"
+                                class="img-rounded">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                         <label  class="col-sm-12 control-label">
+                            Click ‘Connect to eBay’. You will be redirected to eBay’s site to authorize ezyFulfillment by providing your login credentials. Continue to follow the steps provided in eBay.
+                          </label>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-sm-7 pull-right">
+                          <button class="btn btn-primary"
+                           type="submit">Connect to eBay</button>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-1 pull-right">
+                          <button class="btn btn-default"
+                           type="submit">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

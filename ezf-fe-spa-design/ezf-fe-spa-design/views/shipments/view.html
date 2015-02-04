@@ -1,0 +1,423 @@
+<section class="container-fluid" ng-init="init()">
+    <div class="row">
+        <div class="col-xs-12">
+            <ng-include src="'views/shipments/nav.html'"></ng-include>
+            <section class="content full widget-form">
+                <div class="row">
+                    
+					
+					<div class="col-sm-12">  
+								<div class="displaylbltxt-panel">
+									<h2 class="thHead thHead-view">View Shipment</h2>
+									<div class="displaylbltxt martop35">
+										<span ng-bind="model.header.inboundCode || constants.notAvailableText"></span>										
+									</div>
+								</div>	
+								<div class="container-fluid">
+								  <div class="row paddbtm30">
+									<div class="col-sm-12 col-lg-9 paddnone">
+									  <div class="thHeadIco glyphicon glyphicon-export_shipments col-lg-1 col-sm-1 hidden-xs"></div>
+									  <div class="thContent col-lg-11 col-sm-10">
+										To get started, please download the import template in one of the formats below. The file contains guidelines on how to fill the template. You can upload a maximum of 1000 products at one go.
+									  </div>
+									  </div>
+								  </div>
+								</div>								
+                    </div>
+					
+					
+                </div>
+                <form role="form" class="form-horizontal">
+                    <div class="panel-group">
+					<div class="row spec-view paddbtm30">
+                        <div class="panel panel-default col-md-4 col-sm-12 col-xs-12 xstxt-padd0 smtxt-padd0">
+                        <div class="viewbg">    
+                                <h4 class="panel-title" id="shipment-view-general">Shipment Specification</h4>
+								<div class="displaylbltxt statuspanel">
+											<span ng-bind="statusTxt"></span>
+										</div>
+                            
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="row" ng-show="(model.header.status == 1 || model.header.status == 2) && !model.header.cancelledDate">
+                                        
+                                            <div class="row">
+                                                
+                                                <div class="col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="price" class="col-sm-5 control-label">Plan Name<span class="pull-right">:</span></label>
+                                                        <div class="col-sm-6 xstxt-paddlft20">
+                                                            <p id="product-view-retail-price" class="form-control-static" ng-bind="model.header.planName || constants.notAvailableText"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="eanType" class="col-sm-5 control-label">Who Labels?<span class="pull-right">:</span></label>
+                                                        <div class="col-sm-6 xstxt-paddlft20">
+                                                            <p id="shipment-view-labelby" class="form-control-static" ng-bind="labelTxt"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="eanType" class="col-sm-5 control-label">Remarks<span class="pull-right">:</span></label>
+                                                        <div class="col-sm-6 xstxt-paddlft20">
+                                                            <p id="shipment-view-remarks" class="form-control-static" ng-bind="model.header.remarks || constants.notAvailableText"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+												<div class="col-sm-12 col-xs-12">
+												<div class="form-group">
+													<label for="eanType" class="col-sm-5 control-label">Total No. of Cartons<span class="pull-right">:</span></label>
+													<div class="col-sm-6 xstxt-paddlft20">
+														<p id="shipment-view-pallets" class="form-control-static" ng-bind="model.header.cartonsCount || constants.notAvailableText"></p>
+													</div>
+												</div>
+												</div>
+												<div class="col-sm-12 col-xs-12">
+														<div class="col-sm-5 col-xs-12 paddnone">
+                                                            <div class="form-group">
+															<label for="eanType" class="col-sm-2 col-xs-2 paddnone control-label"><span class="glyphicon glyphicon-icon-adddate"></span></label>
+															
+															<div class="col-sm-8 paddrgt0">
+															<p ng-if="model.header.createdDate" class="form-control-static" ng-bind="model.header.createdDate|addEllipse:10:true"></p>
+															</div>															
+															</div>
+														</div>
+														<div class="col-sm-5 col-xs-12 paddnone">
+                                                            <div class="form-group">
+															<label for="eanType" class="col-sm-2 col-xs-2 paddnone control-label"><span class="glyphicon glyphicon-icon-edit1"></span></label>
+															
+															<div class="col-sm-8 paddrgt0">
+															<p ng-if="model.header.modifiedDate" class="form-control-static" ng-bind="model.header.modifiedDate|addEllipse:10:true"></p>
+															</div>															
+															</div>
+														</div>
+												</div>
+												<div class="col-sm-12 col-xs-12">
+												<div class="col-sm-5 col-xs-12">
+													<div class="form-group">
+														<label for="eanType" class="col-sm-2 col-xs-2 paddrgt10 control-label"><span class="glyphicon glyphicon-icon-truck1"></span></label>
+														<div class="col-sm-8 paddrgt0 paddleft20">
+															<p id="shipment-view-estimated-ship-date" class="form-control-static" ng-bind="model.header.estShipDate || constants.notAvailableText"></p>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-5 col-xs-12 paddnone">
+													<div class="form-group">
+														<label for="eanType" class="col-sm-2 col-xs-2 control-label"><span class="glyphicon glyphicon-icon-flag"></span></label>
+														<div class="col-sm-8 paddrgt0">
+															<p id="shipment-view-arrival-ship-date" class="form-control-static" ng-bind="model.header.estArrivalDate || constants.notAvailableText"></p>
+														</div>
+													</div>
+												</div>
+												</div>
+                                    
+                                            </div>
+                                        
+                                        
+                                    </div>
+
+                                    <div class="row" ng-hide="(model.header.status == 1 || model.header.status == 2) && !model.header.cancelledDate">
+
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="shipment-view-ezf-id" class="col-sm-5 control-label">EZF Shipment ID</label>
+                                                <div class="col-sm-7">
+                                                    <p id="shipment-view-ezf-id" class="form-control-static" ng-bind="model.header.inboundCode || constants.notAvailableText"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+										<div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="price" class="col-sm-5 control-label">Shipment Plan</label>
+                                                <div class="col-sm-7">
+                                                    <p id="product-view-retail-price" class="form-control-static" ng-bind="model.header.planName || constants.notAvailableText"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+										 <div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="eanType" class="col-sm-5 control-label">Carrier Name</label>
+                                                <div class="col-sm-7">
+                                                    <p id="shipment-view-carrier-name" class="form-control-static" ng-bind="model.header.carrierName || constants.notAvailableText"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="eanType" class="col-sm-5 control-label">Carrier Tracking Number</label>
+                                                <div class="col-sm-7">
+                                                    <p id="shipment-view-carrier-tracking" class="form-control-static" ng-bind="model.header.trackingNumber || constants.notAvailableText"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="productCat" class="col-sm-5 control-label">Status</label>
+                                                <div class="col-sm-7">
+                                                    <p id="shipment-view-status" class="form-control-static" ng-bind="statusTxt"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="eanType" class="col-sm-5 control-label">Who Labels?</label>
+                                                <div class="col-sm-7">
+                                                    <p id="shipment-view-labelby" class="form-control-static" ng-bind="labelTxt"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="eanType" class="col-sm-5 control-label">Remarks</label>
+                                                <div class="col-sm-7">
+                                                    <p id="shipment-view-remarks" class="form-control-static" ng-bind="model.header.remarks || constants.notAvailableText"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+							</div>
+                        </div>
+                        <div class="panel panel-default col-md-4 col-sm-12 col-xs-12 paddlftrgt50">
+                            
+                                <h4 class="panel-title" id="product-view-basic">Ship From Address</h4>
+                            
+                            <div id="collapseTwo" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="row">
+									
+									<div class="col-sm-12 col-xs-12">
+										<span id="product-view-merchant-sku" class="form-control-static" ng-bind="model.header.fromName || constants.notAvailableText"></span><br>
+									<span id="shipment-view-address-line1" class="form-control-static" ng-bind="model.header.address1 || constants.notAvailableText"></span><br>
+									<span id="shipment-view-address-line2" class="form-control-static" ng-bind="model.header.address2 || constants.notAvailableText"></span><br>
+									<span id="shipment-view-city" class="form-control-static" ng-bind="model.header.addressCity || constants.notAvailableText"></span><br>
+									<span id="shipment-view-province" class="form-control-static" ng-bind="model.header.addressState || constants.notAvailableText"></span><br>
+									<span>
+									<span id="shipment-view-country" class="form-control-static" ng-bind="model.header.addressCountry || constants.notAvailableText"></span>
+									<span>-</span>
+									<span ng-bind="model.header.addressPostalCode || constants.notAvailableText"></span>
+									</span><br>							
+									<span id="shipment-view-phone" class="form-control-static glyphicon glyphicon-ic_local_phone_48px" ng-bind="model.header.phone || constants.notAvailableText"></span><br>
+									<span id="shipment-view-phone" class="form-control-static glyphicon glyphicon-ic_mail_48px" ng-bind="model.header.email || constants.notAvailableText"></span>
+									</div>
+                                        
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+						
+						<div class="panel panel-default col-md-4 col-sm-12 col-xs-12 paddlftrgt50">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-xs-12 padd0 printtable">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="2">Print Labels</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-show="model.header.labelBy=='M'">
+                                                                <td>
+                                                                    <select id="shipment-view-prodcut-labels" class="form-control" name="shipment-view-prodcut-labels" ng-model="productLabelList"  ng-options="item as item.name for item in constants.productLabelList track by item.value">
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <button type="button" ng-click="getFileUrl(productLabelList, 'productlabelshipment')" title="Product Label" id="shipment-view-prodcut-label-btn" class="btn btn-primary">Product Label</button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <select id="shipment-view-box-label" class="form-control" name="shipment-view-box-label" ng-model="boxLabelList"  ng-options="item as item.name for item in constants.boxLabelList track by item.value">
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <button type="button" ng-click="getFileUrl(boxLabelList, 'boxlabelshipment')" id="shipment-view-box-label-btn" class="btn btn-primary" title="Box Label">Box Label</button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+						
+						</div>
+						
+					
+					<div class="panel panel-default col-sm-12 col-xs-12 paddnone">
+                            
+                            <div id="collapseFour" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12 paddnone">
+                                            
+										<div class="newGridContainer container-fluid  col-xs-12 paddnone">
+											<div class="row proHeader">
+											  <div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2">SKU</div>
+                                              <div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2">Product Name</div>
+											  <div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2">Inventory Fullfilable</div>
+                                              <div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-3">Number of Units</div>
+											  <div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2">Label Quantity</div>
+											  <div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2" ng-show="model.header.status == 2 || model.header.status == 3">Inventory Received</div>
+											  <div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2" ng-show="model.header.status == 2 || model.header.status == 3">Inventory Damaged</div>
+											</div>
+											<div class="clear"></div>
+											<div class="row proRow" ng-if="model.products.length" ng-repeat="product in model.products">
+											<!--Product-->
+											<div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2 form-control-static" ng-bind="product.sku || constants.notAvailableText"></div>
+											<!--Product Name-->
+											<div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2 form-control-static" ng-bind="product.productDesc || constants.notAvailableText"></div>
+											<!--Inventory-->
+											<div class="protablepadd col-xs-12 col-sm-12 col-md-2 col-lg-2 form-control-static" ng-bind="product.fulFilQty || constants.notAvailableText"></div>
+											
+											<div class="protablepadd col-xs-12 col-sm-12 col-md-3 col-lg-3 form-control-static" ng-bind="product.quantity || constants.notAvailableText">												
+											</div>
+											<div class="protablepadd col-xs-12 col-sm-12 col-md-1 col-lg-2 form-control-static" ng-bind="product.labelQuantity || constants.notAvailableText">
+											</div>
+											
+											<div class="protablepadd col-xs-12 col-sm-12 col-md-1 col-lg-1 form-control-static" ng-show="model.header.status == 2 || model.header.status == 3">
+												<p class="form-control-static" ng-bind="product.receivedQty || constants.notAvailableText"></p>
+											</div>
+											
+											<div class="protablepadd col-xs-12 col-sm-12 col-md-1 col-lg-1 form-control-static" ng-show="model.header.status == 2 || model.header.status == 3">
+												<p class="form-control-static" ng-bind="product.damagedQty || constants.notAvailableText"></p>
+											</div>
+											
+											</div>
+											<div class="clear"></div>
+										</div>
+											
+											
+											<!--<table class="table table-hover  table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <td>SKU</td>
+                                                        <td>Product Name</td>
+                                                        <td>Inventory Fullfilable</td>
+                                                        <td>Number of Units</td>
+                                                        <td>Label Quantity</td>
+                                                        <td ng-show="model.header.status == 2 || model.header.status == 3">Inventory Received</td>
+                                                        <td ng-show="model.header.status == 2 || model.header.status == 3">Inventory Damaged</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody ng-if="model.products.length">
+                                                    <tr ng-repeat="product in model.products">
+                                                        <td>
+                                                            <p class="form-control-static" ng-bind="product.sku || constants.notAvailableText"></p>
+                                                        </td>
+                                                        <td>
+                                                            <p class="form-control-static" ng-bind="product.productDesc || constants.notAvailableText"></p>
+                                                        </td>
+                                                        <td>
+                                                            <p class="form-control-static" ng-bind="product.fulFilQty || constants.notAvailableText"></p>
+                                                        </td>
+                                                        <td>
+                                                            <p class="form-control-static" ng-bind="product.quantity || constants.notAvailableText"></p>
+                                                        </td>
+                                                        <td>
+                                                            <p class="form-control-static" ng-bind="product.labelQuantity || constants.notAvailableText"></p>
+                                                        </td>
+                                                        <td ng-show="model.header.status == 2 || model.header.status == 3">
+                                                            <p class="form-control-static" ng-bind="product.receivedQty || constants.notAvailableText"></p>
+                                                        </td>
+                                                        <td ng-show="model.header.status == 2 || model.header.status == 3">
+                                                            <p class="form-control-static" ng-bind="product.damagedQty || constants.notAvailableText"></p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tbody ng-if="!model.products.length">
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <p class="form-control-static">No data to display</p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						<div class="row">
+                        <!--<div class="panel panel-default col-md-7 col-sm-12 col-xs-12 xstxt-padd0 smtxt-padd0 paddrgt20">
+                            <div class="panel-heading" >
+                                <h4 class="panel-title" id="shipment-view-shipment-details">Shipment Details</h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="row">
+                                       
+                                        
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="eanType" class="col-sm-5 control-label">Estimated Ship Date</label>
+                                                <div class="col-sm-7">
+                                                    <p id="shipment-view-estimated-ship-date" class="form-control-static" ng-bind="model.header.estShipDate || constants.notAvailableText"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="eanType" class="col-sm-5 control-label">Estimated Arrival Date</label>
+                                                <div class="col-sm-7">
+                                                    <p id="shipment-view-arrival-ship-date" class="form-control-static" ng-bind="model.header.estArrivalDate || constants.notAvailableText"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+						 <div class="panel panel-default col-md-12 col-sm-12 col-xs-12 paddnone">
+                            <div class="panel-heading">
+                                <h4 class="panel-title" id="shipment-view-activity">Shipment Activity</h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <p ng-if="model.header.createdDate" class="form-control-static" ng-bind="'Created Date: ' + model.header.createdDate"></p>
+                                            <p ng-if="model.header.modifiedDate" class="form-control-static" ng-bind="'Modified Date: ' + model.header.modifiedDate"></p>
+                                            <p ng-if="model.header.transitDate" class="form-control-static" ng-bind="'Transit Date: ' + model.header.transitDate"></p>
+                                            <p ng-if="model.header.cancelledDate" class="form-control-static" ng-bind="'Cancelled Date: ' + model.header.cancelledDate"></p>
+                                            <p ng-if="model.header.receivedDate" class="form-control-static" ng-bind="'Received Date: ' + model.header.receivedDate"></p>
+											<!--<div class="row marbtm">
+											<div class="col-sm-5 col-xs-12">Created Date</div><div class="col-sm-7" ng-bind="model.header.createdDate"></div>
+											</div>
+											<div class="row marbtm">
+											<div class="col-sm-5 col-xs-12">Modified Date</div><div class="col-sm-7" ng-bind="model.header.modifiedDate"></div>
+											</div>-->
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+					</div>
+					
+                       
+                    </div>
+                    <div class="btn-grp pull-right">
+                        <button class="btn btn-default" id="shipment-view-back-btm" ng-click="back()">Back</button>
+                        <button ng-show="(model.header.status == 1 || model.header.status == 2) && !model.header.cancelledDate" class="btn btn-danger" id="shipment-view-cancel-btm" ng-click="cancel()">Cancel Shipment</button>
+                        <button ng-show="(model.header.status == 1 || model.header.status == 2) && model.header.cancelledDate" class="btn btn-danger" id="shipment-view-restore-btm" ng-click="restore()">Restore Shipment</button>
+                        <button ng-show="(model.header.status == 1 || model.header.status == 2) && !model.header.cancelledDate" class="btn btn-primary" id="shipment-view-print-top">Print Summary</button>
+                        <a ng-show="model.header.status == 1 && !model.header.cancelledDate" href="#/shipments/send/{{model.header.inboundCode}}" class="btn btn-primary" id="shipment-view-edit-btm">Edit</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</section>

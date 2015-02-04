@@ -1,0 +1,80 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form" class="form-horizontal" name="edit_product"
+              novalidate angular-validator angular-validator-submit="">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="pull-left">Connections</h2>
+                </div>
+              </div>
+              <p>
+              <div class="row">
+                <div class="col-sm-2">
+                   <a href="#/accounts/connections/addNewChannel"><button class="btn btn-success pull-right col-sm-12" type="submit">Add New Channel</button></a>
+                </div>
+              </div>  
+              </p>
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div data-toggle="collapse" data-target="#collapseOne"
+                    class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="javascript:;" id="product-edit-product-defaults">
+                        Channel Summary </a>
+                       <label class="pull-right">
+                        <input type="checkbox" id="accounts-connections-showInactive" name="accounts-connections-showInactive"> Show Inactive
+                      </label>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="table-responsive">
+                        <table
+                          class="table table-hover table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>Store/Marketplace/Carts</th>
+                              <th>Store Name</th>
+                              <th>Active</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                              <td>eBay</td>
+                              <td>Mikebay</td>
+                              <td>Mikebay</td>
+                              <td>
+                                <a href="#/accounts/connections/edit/ebay" title="EZT001">Edit</a>
+                                <a href="#/products/view/EZT001" title="EZT001">Remove</a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Shopify</td>
+                              <td>JillShopify</td>
+                              <td>Mikebay</td>
+                              <td>
+                                 <a href="#/products/view/EZT001" title="EZT001">Edit</a>
+                                 <a href="#/products/view/EZT001" title="EZT001">Remove</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

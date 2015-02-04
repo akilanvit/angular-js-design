@@ -1,0 +1,345 @@
+<section class="container-fluid" ng-init="init()">
+    <div class="row">
+        <div class="col-xs-12">
+            <ng-include src="'views/shipments/nav.html'"></ng-include>
+            <section class="content full widget-form">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form role="form"  name="create_shipment" novalidate angular-validator angular-validator-submit="createShipment(create_shipment)">
+                            <h2 class="thHead">Create Shipment</h2>
+                            <div class="container-fluid">
+                                <div class="row paddbtm30">
+                                    <div class="col-sm-12 col-lg-9 padd0">
+                                        <div class="thHeadIco glyphicon glyphicon-share-car col-lg-1 col-sm-1 hidden-xs"></div>
+                                        <div class="thContent col-lg-11 col-sm-10">
+                                            Manually fill up the fields to create a Shipment. No two products must have the same Merchant SKU. Apply Customs declaration information to be used in future orders.Fields marked with asterisk ( * ) are mandatory
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-group">
+                                <div class="row">
+                                    <ul class="step-flow">
+                                        <li class="select"><span>Add Products</span></li>
+                                        <li><span>Send Shipment</span></li>
+                                    </ul>
+                                </div>
+
+                                <div class="panel panel-default">
+
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body order-headid">
+                                            <div class="row">
+                                                <div class="col-md-5 col-sm-6 col-xs-12">
+                                                    <div class="form-group required">
+                                                        <label for="shipment-create-plan-name" class="col-md-4 col-sm-5 col-xs-12 control-label">Shipment Plan Name</label>
+                                                        <div class="col-md-6 col-sm-6 col-xs-11 paddnone">
+                                                            <input name="shipment-create-plan-name" type="text" class="form-control" id="shipment-create-plan-name" placeholder="Plan Name" ng-model="model.header.planName" required required-message="validationMessages.required" maxlength="30" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div  class="panel-heading">
+                                        <h4 class="panel-title"><a href="javascript:;" id="shipment-create-ship-address"> Ship From Address</a></h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12 col-xs-12 paddnone">
+                                                <div class="col-sm-9 paddnone">
+                                                    <div class="row">
+
+                                                        <div class="col-md-4 col-sm-6 col-xs-12" >
+                                                            <div class="form-group required">
+                                                                <label for="shipment-create-firstName" class="control-label">Name / Company Name</label>
+                                                                <input name="shipment-create-firstname" type="text" class="form-control" id="shipment-create-firstname" placeholder="First Name" ng-model="model.header.fromName" maxlength="30" required required-message="validationMessages.required"/>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group required">
+                                                                <label for="shipment-create-addressLine1" class=" control-label">Address Line 1</label>
+                                                                <input name="shipment-create-addressLine1" type="text" class="form-control" id="shipment-create-addressLine1" placeholder="Address Line 1" maxlength="50" ng-model="model.header.address1" required required-message="validationMessages.required" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-6 col-xs-12" >
+                                                            <div class="form-group">
+                                                                <label for="shipment-create-addressLine2" class=" control-label">Address Line 2</label>
+                                                                <input name="shipment-create-addressLine2" type="text" class="form-control" id="shipment-create-addressLine2" placeholder="Address Line 2" maxlength="50" ng-model="model.header.address2" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 col-sm-6 col-xs-12" >
+
+                                                            <div class="form-group required">
+                                                                <label for="shipment-create-city" class=" control-label">City / Town</label>
+                                                                <input name="shipment-create-city" type="text" class="form-control" id="shipment-create-city" placeholder="City" ng-model="model.header.addressCity" required required-message="validationMessages.required" maxlength="30" />
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-4 col-sm-6 col-xs-12" >
+
+                                                            <div class="form-group">
+                                                                <label for="shipment-create-state" class=" control-label">State / Province</label>
+                                                                <input name="shipment-create-state" type="text" class="form-control" id="shipment-create-state" placeholder="State/Region" ng-model="model.header.addressState" maxlength="30" />
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-4 col-sm-6 col-xs-12" >
+
+                                                            <div class="form-group required">
+                                                                <label for="shipment-create-originCountry" class="control-label">Country</label>
+                                                                <select class="form-control" name="shipment-create-originCountry" ng-model="countryOfOriginCtrl" id="shipment-create-originCountry" required-message="validationMessages.required" ng-options="item as item.countryName for item in countryList track by item.countryCode" required>
+                                                                    <option value="">Select</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-4 col-sm-6 col-xs-12" >
+
+                                                            <div class="form-group required">
+                                                                <label for="shipment-create-zipCode" class=" control-label">ZIP/Postal Code</label>
+                                                                <input name="shipment-create-zipCode" type="text" class="form-control" id="shipment-create-zipCode" placeholder="ZIP/Postal Code" ng-model="model.header.addressPostalCode" required required-message="validationMessages.required" invalid-message="validationMessages.invalidnumber" maxlength="20"/>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-4 col-sm-6 col-xs-12" >
+                                                            <div class="form-group">
+                                                                <label for="shipment-create-phone" class=" control-label">Phone</label>
+                                                                <input name="shipment-create-phone" type="tel" class="form-control" id="shipment-create-phone" placeholder="Phone" ng-model="model.header.phone" invalid-message="validationMessages.invalidphone" maxlength="20"/>
+                                                            </div>
+                                                        </div>
+														<div class="col-md-4 col-sm-6 col-xs-12" >
+														<div class="form-group">
+                                                            <label for="shipment-create-email" class=" control-label">Email</label>
+                                                            <input name="shipment-create-email" type="text" class="form-control" id="shipment-create-email" placeholder="Email" maxlength="50"  required required-message="validationMessages.required" />
+                                                        </div>
+														</div>
+														
+														
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-sm-1"></div>
+
+
+                                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                                    <div class="row">
+                                                        
+                                                        <div class="form-group">
+                                                            <label for="shipment-create-remarks" class=" control-label">Remarks</label>
+                                                            <textarea id="shipment-create-remarks" name="shipment-create-remarks" class="form-control" rows="4" cols="7" ng-model="model.header.remarks"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="javascript:;" id="shipment-create-product-details"> Product Details</a></h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse in">
+
+                                        <div class="panel-body">
+                                            <div class="row srch-product-details">
+                                                <div class="col-sm-8 paddnone">
+                                                    <div class="form-group">
+                                                        <label for="shipment-create-search-product" class="col-sm-4 control-label">Search and Add Products</label>
+                                                        <div class="col-sm-4 xstxt-padd0">
+                                                            <input name="shipment-create-search-product" type="text" class="form-control shipment-search-box-products" id="shipment-create-search-product" placeholder="(EZY-SKU/Merchant SKU/Name/ID)" ng-model="searchKey" ng-focus="findSuggestion(searchKey)" ng-change="findSuggestion(searchKey)" />
+                                                            <div class="list-group suggestion-box" id="shipment-create-product-search-suggestion" ng-if="suggestions.length">
+                                                                <a ng-repeat="suggest in suggestions" href="javascript:;" class="list-group-item" ng-click="addProduct(suggest)" ng-class="{'disabled' : checkActive(suggest)}">
+                                                                    <span ng-bind-html="highlightSuggest(suggest.productName, searchKey)"></span>
+                                                                    <em ng-bind-html="'PRODUCT ID: ' + (highlightSuggest(suggest.productId, searchKey)  || constants.notAvailable) + ','"></em>
+                                                                    <em ng-bind-html="'EZY-SKU: ' + (highlightSuggest(suggest.fbspSkuId, searchKey) || constants.notAvailable) + ','"></em>
+                                                                    <em ng-bind-html="'SKU: ' + (highlightSuggest(suggest.sku, searchKey) || constants.notAvailable)"></em>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <em class="text-danger">Click on the suggested product to add them.</em>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 paddnone">
+                                                    <div class="form-group">
+                                                        <label for="shipment-create-who-labels" class="col-sm-5 paddnone control-label">Who Labels?</label>
+                                                        <div class="col-sm-7 paddnone">
+                                                            <select class="form-control" name="shipment-create-who-labels" ng-model="whoLabelsCtrl" id="shipment-create-who-labels" required-message="validationMessages.required" ng-options="item as item.name for item in labelList track by item.value" required>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12 paddnone">
+                                            <div class="newGridContainer container-fluid paddnone">
+                                                <div class="row proHeader">
+                                                    <!--<div class="proHeaEditH col-sm-1 col-md-1 col-lg-1">
+                                                        <div class="checkboxFive">
+                                                            <input type="checkbox" value="" id="" name="" ng-click="toggleCheckBox()" ng-model="toggleCheckBoxVal"/>
+                                                            &lt;!&ndash;<span class="glyphicon glyphicon-checkbox"></span>&ndash;&gt;
+                                                        </div>
+                                                    </div>-->
+                                                    <div class="proHeaMerH col-sm-3 col-md-1 col-lg-2">Product</div>
+                                                    <div class="proHeaCatH col-sm-2 col-md-1 col-lg-2">Category</div>
+                                                    <div class="proHeaDimH col-sm-2 col-md-1 col-lg-2">Inventory</div>
+                                                    <div class="proHeaMerH col-sm-4 col-md-2 col-lg-4">
+                                                        <div class="col-sm-6">Number of Units</div>
+                                                        <div class="col-sm-6" ng-show="whoLabelsCtrl.value == 'M'">Label Quantity</div>
+                                                    </div>
+                                                    <div class="proHeaAleH col-sm-1 col-md-1 col-lg-1">Remove</div>
+                                                </div>
+                                                <div class="clear"></div>
+
+
+                                                <div class="row proRow" ng-class="{rowSelected:product.Selected}" ng-repeat="product in model.products">
+
+                                                    <!--<div class="proHeaEdit col-sm-1 col-md-1 col-lg-1">
+                                                        <div class="checkboxFive">
+                                                            <input type="checkbox" value="" id="" name="" ng-model="product.Selected" />
+                                                            &lt;!&ndash;<span class="glyphicon glyphicon-checkbox"></span>&ndash;&gt;
+                                                        </div>
+                                                    </div>-->
+
+                                                    <div class="proHeaMerH col-sm-3 col-md-1 col-lg-2">
+                                                        <!--Merchant SKU ID -->
+                                                        <div class="skU">
+                                                            <div class="editFlight">
+
+                                                                <span ng-class="{'glyphicon glyphicon-flight-grid' : !product.isExportable, 'glyphicon glyphicon-flight-ok-grid' : product.isExportable}"></span>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 2nd Line - Product Name -->
+                                                        <div class="proName">
+                                                            {{product.productDesc || constants.notAvailable | addEllipse:30}}
+                                                        </div>
+                                                        <!-- 3rd Line - skuid -->
+                                                        <div class="eSku">
+                                                            <span class="">EZY-SKU : {{product.sku || constants.notAvailable}}</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Category -->
+                                                    <div class="proHeaCatH col-sm-2 col-md-1 col-lg-2">
+
+                                                        {{product.category | addEllipse:20 }}
+
+                                                    </div>
+
+                                                    <!-- Inventory -->
+                                                    <div class="proHeaDimH col-sm-2 col-md-1 col-lg-2">
+
+                                                        <!--<div>
+
+                                                            {{product.width || constants.notAvailableText}} x {{product.length || constants.notAvailableText}} x {{product.height || constants.notAvailableText}} {{product.dimensionUnit || constants.notAvailableText}}
+                                                        </div>
+                                                        <div>
+                                                            <span class="txtItalic">{{product.weight}}</span>
+                                                            <span class="kg txtItalic">{{product.weightUnit}}</span>
+
+                                                        </div>-->
+
+                                                        <!--<div class="proHeaInv col-sm-4 col-md-1 col-lg-2">-->
+                                                            <div class="fullFill fullColor txtBold">
+                                                                Fullfillable : {{product.qtyFulfillable || constants.notAvailableText}}
+                                                            </div>
+                                                            <div class="damInbound">
+                                                                <span class="dam txtItalic damColor">
+                                                                    Damaged : {{product.qtyDamaged || constants.notAvailableText}}
+                                                                </span>
+                                                                <span class="inb txtItalic">
+                                                                    Inbound : {{product.qtyInShipment || constants.notAvailableText}}
+                                                                </span>
+                                                            </div>
+                                                        <!--</div>-->
+
+                                                    </div>
+
+
+                                                    <div class="proHeaMerH col-sm-4 col-md-2 col-lg-4">
+                                                        <!-- No. of Units-->
+
+                                                        <div class="col-sm-6">
+
+                                                            <input name="shipment-create-product-quantity-{{$index}}" type="text" class="form-control shipment-qty" id="shipment-create-product-quantity-{{$index}}" placeholder="Quantity" ng-model="product.quantity" required required-message="validationMessages.required" step="1" min="1" ng-blur="updateLabelQuantity(product)"/>
+                                                        </div>
+
+                                                        <!-- Label Quantity-->
+                                                        <div class="col-sm-6" ng-show="whoLabelsCtrl.value == 'M'">
+
+                                                            <div><input name="shipment-create-product-labelquantity-{{$index}}" type="text" class="form-control shipment-qty" id="shipment-create-product-labelquantity-{{$index}}" placeholder="Quantity" ng-model="product.labelQuantity" step="1"/></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Remove -->
+                                                    <div class="proHeaAleH col-sm-1 col-md-1 col-lg-1">
+                                                        <button id="shipment-create-product-remove-{{$index}}"type="button" class="plus-btn btn btn-danger" ng-click="removeProduct(product)">X</button>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="row proRow" ng-if="!model.products.length">
+
+                                                    <div class="noRecordDisplay col-sm-12 col-md-12 col-lg-12">
+                                                        No data to display
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="btn-grp pull-right">
+                                <button id="create-shipment-cancel-btm" type="button" class="btn btn-default" ng-click="back()">Cancel</button>
+                                <button id="create-shipment-create-btm" type="submit" class="btn btn-primary">Create Shipment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="modal fade"  tabindex="-1" role="dialog" aria-hidden="true" id="modal-shipment-create">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Create Shipment</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Please add atleast one product to create shipment</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</section>

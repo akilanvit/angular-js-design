@@ -1,0 +1,105 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form" class="form-horizontal" name="create_product"
+              novalidate angular-validator
+              angular-validator-submit="createProduct(create_product)">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="pull-left">Download Shipments File</h2>
+                </div>
+              </div>
+              <p>You can download only one Shipment at a time.  Enter either the Shipment ID or Shipment Plan Name that you entered during the creation process</p>
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div data-toggle="collapse" data-target="#collapseOne"
+                    class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="javascript:;" id="product-create-basic-information">Filter
+                        Shipments</a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <label for="exampleInputEmail1">Shipment Plan / ID</label>
+                        </div>
+                        <div class="col-sm-4 pull-left">
+                          <input type="text" class="form-control" id="shipmentPlan"
+                            placeholder="Shipment ID/Plan">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <div class="btn-grp">
+                            <button type="button" class="btn btn-primary">Download</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div data-toggle="collapse" data-target="#collapseOne"
+                    class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="javascript:;" id="product-create-basic-information">Shipments
+                        File Download Summary</a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p>You can download upto 10 previously generated files</p>
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <table
+                          class="table table-hover table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>Date & Time</th>
+                              <th>Filters Used</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                              <td>22/07/14 9:16 SST</td>
+                              <td>Shipment Plan/ID ship : ship123</td>
+                              <td><a href="#/products/view/EZT001" title="EZT001">Download</a></td>
+                            </tr>
+                            <tr>
+                              <td>22/07/14 9:16 SST</td>
+                              <td>Shipment Plan/ID ship : ship123</td>
+                              <td><a href="#/products/view/EZT001" title="EZT001">Download</a></td>
+                            </tr>
+                            <tr>
+                              <td>22/07/14 9:16 SST</td>
+                              <td>Shipment Plan/ID ship : ship123</td>
+                              <td><a href="#/products/view/EZT001" title="EZT001">Download</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

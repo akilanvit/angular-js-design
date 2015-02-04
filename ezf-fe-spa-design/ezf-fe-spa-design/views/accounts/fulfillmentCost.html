@@ -1,0 +1,144 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form" class="form-horizontal" name="create_product"
+              novalidate angular-validator
+              angular-validator-submit="createProduct(create_product)">
+              <div class="panel-group panel-default ">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Warehouse Rates</h3>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="table-responsive">
+                        <table
+                          class="table table-hover table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>Transaction Category</th>
+                              <th>Transaction Name</th>
+                              <th>UOM</th>
+                              <th>Rate</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Storage</td>
+                              <td>Storage</td>
+                              <td>Per cbcm per week</td>
+                              <td>$ 0.108</td>
+                            </tr>
+                            <tr>
+                              <td>Inbound</td>
+                              <td>Recieving</td>
+                              <td>Per unit</td>
+                              <td>$ 0.020</td>
+                            </tr>
+                            <tr>
+                              <td>Outbound</td>
+                              <td>Order Processing</td>
+                              <td>Per order</td>
+                              <td>$ 2.000</td>
+                            </tr>
+                            <tr>
+                              <td>Outbound</td>
+                              <td>Pick and Pack</td>
+                              <td>Per unit</td>
+                              <td>$ 0.40</td>
+                            </tr>
+                            <tr>
+                              <td>Value Added Services</td>
+                              <td>Product Labelling</td>
+                              <td>Per unit</td>
+                              <td>$ 0.015</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-group panel-default ">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Delivery Rates</h3>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="table-responsive">
+                        <table
+                          class="table table-hover table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>Delivery</th>
+                              <th>Volume Tier (for monthly volume)</th>
+                              <th>Upto 3 kg</th>
+                              <th>3 kg to 10 kg</th>
+                              <th>10 kg to 20 kg</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Domestic Standard</td>
+                              <td>1st - 100th Order</td>
+                              <td>$5.50</td>
+                              <td>$5.50+$3.00</td>
+                              <td>$5.50+$6.00</td>
+                            </tr>
+                            <tr>
+                              <td>Domestic Standard</td>
+                              <td>101th - 250th Order</td>
+                              <td>$5.00</td>
+                              <td>$5.00+$3.00</td>
+                              <td>$5.00+$6.00</td>
+                            </tr>
+                            <tr>
+                              <td>Domestic Standard</td>
+                              <td>251st order onwards</td>
+                              <td>$4.70</td>
+                              <td>$4.70+$3.00</td>
+                              <td>$4.70+$6.00</td>
+                            </tr>
+
+                            <tr>
+                              <td>Domestic Economy</td>
+                              <td>1st - 100th Order</td>
+                              <td>$3.50</td>
+                              <td>$3.50+$2.00</td>
+                              <td>$3.50+$4.00</td>
+                            </tr>
+                            <tr>
+                              <td>Domestic Economy</td>
+                              <td>101th - 250th Order</td>
+                              <td>$3.00</td>
+                              <td>$3.00+$2.00</td>
+                              <td>$3.00+$4.00</td>
+                            </tr>
+                            <tr>
+                              <td>Domestic Economy</td>
+                              <td>251st order onwards</td>
+                              <td>$3.70</td>
+                              <td>$3.70+$2.00</td>
+                              <td>$3.70+$4.00</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+

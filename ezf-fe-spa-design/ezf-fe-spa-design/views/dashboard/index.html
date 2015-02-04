@@ -1,0 +1,154 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+
+    <div class="col-sm-9">
+      <article class="widget-data clearfix">
+        <div class="filter-box">
+          <p class="link-hldr">
+            <a href="javascript:;" title="Link 1">Today</a>
+            <a href="javascript:;" title="Last 7 Days">Last 7 Days</a>
+            <a href="javascript:;" title="Last 30 Days">Last 30 Days</a>
+            <a href="javascript:;" title="Link 4" class="active">This month</a>
+            <a href="javascript:;" title="Link 5">Last month</a>
+            <a href="javascript:;" title="Link 6">This quarter</a>
+          </p>
+          <div class="input-group col-md-5" id="datetimepicker7">
+            <span class="input-group-addon datepickerbutton">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+            <input type='text' class="form-control" value="18 July, 2014 - 19 July, 2014"/>
+            <span class="input-group-addon">
+                <span>Filter</span>
+            </span>
+          </div>
+        </div>
+        <h1>Sales between 18 July 2014 to 19 July 2014</h1>
+        <hr/>
+        <div class="status-box">
+          <div class="col-sm-3"><div class="circle green"></div><div class="text green"><span>89</span><br/><span>no. of orders</span><br/><span class="percent">45%</span></div></div>
+          <div class="col-sm-3"><div class="circle green"></div><div class="text green"><span>65</span><br/><span>items sold</span><br/><span class="percent">32%</span></div></div>
+          <div class="col-sm-3"><div class="circle red"></div><div class="text red"><span>12</span><br/><span>ave. order <br/>per day</span></div></div>
+          <div class="col-sm-3"><div class="circle red"></div><div class="text red"><span>78</span><br/><span>ave. order <br/>per day</span></div></div>
+        </div>
+      </article>
+      <!--<article class="widget-table">
+        <div class="gridStyle" ng-grid="gridOptions"></div>
+         <div class="table-responsive">
+          <table class="table table-hover table-bordered table-striped">
+            <thead>
+              <tr><td>#</td><td>Top 5 Sales</td><td>Rates</td></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>data 1</td><td>75 %</td></tr>
+              <tr><td>2</td><td>data 1</td><td>75 %</td></tr>
+              <tr><td>3</td><td>data 1</td><td>75 %</td></tr>
+              <tr><td>4</td><td>data 1</td><td>75 %</td></tr>
+              <tr><td>5</td><td>data 1</td><td>75 %</td></tr>
+            </tbody>
+          </table>
+        </div> 
+
+      </article>-->
+      <article class="widget-main">
+        <header>
+            <strong>Title</strong>
+        </header>
+        <section>
+          <nvd3 options="bar.options" data="bar.data"></nvd3>
+          <div class="btn-grp">
+                <button type="button" class="btn btn-default">Default</button>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-success">Success</button>
+          </div>
+        </section>
+      </article>
+      <article class="widget-main">
+        <header>
+            <strong>Title</strong>
+        </header>
+        <section>
+          <nvd3 options="bar.options" data="bar.data"></nvd3>
+          <div class="btn-grp">
+                <button type="button" class="btn btn-default">Default</button>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-success">Success</button>
+          </div>
+        </section>
+      </article>
+      <article class="widget-main">
+        <header>
+            <strong>Title</strong>
+        </header>
+        <section>
+          
+            <gmap></gmap>
+  
+        </section>
+      </article>
+    </div>
+    <div class="col-sm-3">
+      <article class="widget-aside">
+        <header>Notifications</header>
+        <section>
+          <p>
+            <strong>Products File Upload</strong><br/>
+            <span>Filename – Catalogv34352.xls has been successfully uploaded. 65 products added</span>
+          </p>
+          <p>
+            <strong>Shipment received</strong><br/>
+            <span>ASN # FBSP0041JB has been successfully received. View receipt summary here.</span>
+          </p>
+          <p>
+            <strong>eBay Orders received</strong><br/>
+            <span>You have 18 new orders from eBay waiting for approval.</span>
+          </p>
+          <p>
+            <strong>Invoice for Oct-2014 ready to view</strong><br/>
+            <span>Your invoice is ready for download. Click here.</span>
+          </p>
+        </section>
+      </article>
+      <article class="widget-aside">
+        <header>Announcements</header>
+        <section>
+          <p>
+            <strong>New Release 1.0343.3252</strong><br/>
+            <span>New update released at 23:55 hrs on 31 Oct 2014. All functions working as usual.</span>
+          </p>
+          <p>
+            <strong>Public holiday on 23 Oct 2014</strong><br/>
+            <span>On account of Deepavali, 23 Oct (Wednesday) our warehouses will not be working on this day.</span>
+          </p>
+          <p>
+            <strong>System Update</strong><br/>
+            <span>Services will be unavailable between 23:00 and 23:30 hrs on 22 Oct 2014 due to system upgrade.</span>
+          </p>
+          <p>
+            <strong>Upload Products</strong><br/>
+            <span>A problem with upload products was fixed successfully. We regret the inconvenience.</span>
+          </p>
+        </section>
+      </article>
+      <article class="widget-aside">
+        <section>
+          <p>
+            <strong>Title</strong>
+          </p>
+          <p class="donut-chart">
+            <nvd3 options="pie.options" data="pie.data"></nvd3>
+          </p>
+        </section>
+      </article>
+      <article class="widget-aside">
+        <section>
+          <p>
+            <strong>Title</strong>
+          </p>
+          <p class="donut-chart">
+            <nvd3 options="pie.options" data="pie.data"></nvd3>
+          </p>
+        </section>
+      </article>
+    </div>
+  </div>
+</section>

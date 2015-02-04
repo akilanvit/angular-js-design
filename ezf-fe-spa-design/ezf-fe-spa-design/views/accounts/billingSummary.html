@@ -1,0 +1,194 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form" class="form-horizontal" name="create_product"
+              novalidate angular-validator
+              angular-validator-submit="createProduct(create_product)">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="pull-left">Summary</h2>
+                </div>
+              </div>
+              <p>This is where you can access current and past billing
+                statements. View your current balance, and anticipated daily
+                charges.</p>
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div class="panel-body bg-success">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <label for="product-create-costprice" class="control-label">Previous
+                            Balance :</label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">
+                            (03/11/2013) </label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">$585.00</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <label for="product-create-costprice" class="control-label">Payment
+                            :</label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">
+                            (08/11/2013) </label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">$500.00</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <label for="product-create-costprice" class="control-label">Current
+                            Charges :</label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">
+                            (03/12/2013) </label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">$1210.00</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <label for="product-create-costprice" class="control-label">Total
+                            Charges Due :</label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">$1295.00</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-2">
+                          <label for="product-create-costprice" class="control-label">Payment
+                            Due Date :</label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">
+                            (03/12/2013) </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-group panel-default ">
+                <div class="panel panel-default">
+                  <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div class="panel-body bg-info">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <label for="product-create-costprice" class="control-label">Estimated
+                            of Current month charges :</label>
+                        </div>
+                        <div class="col-sm-4">
+                          <label for="product-create-costprice" class="control-label">
+                            From 1st December until yesterday (14 Dec, 2013) </label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">Storage
+                            :</label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">$450.00</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">Handling
+                            :</label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">$220.00</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">Delivery
+                            :</label>
+                        </div>
+                        <div class="col-sm-1">
+                          <label for="product-create-costprice" class="control-label">$845.00</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-group panel-default ">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Download Monthly Statement</h3>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse in">
+                    <div class="panel-body bg-warning">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="eanType" class="col-sm-5 control-label">Date
+                              Range</label>
+                            <div class="col-sm-4">
+                              <select id="eanType" class="form-control" name="eanType"
+                                ng-model="model.codeType">
+                                <option>Select</option>
+                              </select>
+                            </div>
+                            <div class="col-sm-3">
+                              <button type="button" class="btn btn-primary">Generate
+                                PDF</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-sm-6">
+
+                          <div class="form-group">
+                            <label for="eanType" class="col-sm-5 control-label">Download Method</label>
+                            <div class="col-sm-7">
+                                 <input type="radio">Web Browser
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-5"></div>
+                              <div class="col-sm-2">
+                                    <input type="radio">Email
+                              </div>
+                              <div class="col-sm-1"></div>
+                              <div class="col-sm-4">
+                                <input name="name" type="text" class="form-control"
+                                  id="name" placeholder="Email Address"
+                                  ng-model="model.name" required
+                                  required-message="validationMessages.required" />
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

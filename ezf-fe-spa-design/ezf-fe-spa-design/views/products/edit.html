@@ -1,0 +1,429 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/products/nav.html'"></ng-include>
+      <section class="content full widget-form">
+          <div class="row">
+            <div class="col-sm-12">
+              <form role="form" class="form-horizontal" name="edit_product" novalidate angular-validator angular-validator-submit="editProduct(edit_product)">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h2 class="pull-left">Edit Product</h2>
+                    
+                  </div>
+                </div>
+                <p>Only certain information can be edited. Product defaults cannot be edited after product creation. Fields marked with asterisk (*) are mandatory</p>
+                <div class="panel-group">
+				<div class="row paddbtm20">
+                  <div class="panel panel-default col-md-7 col-sm-12 col-xs-12 xstxt-padd0 smtxt-padd0 paddrgt20">
+                    <div data-toggle="collapse" data-target="#collapseOne" class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="product-edit-product-defaults">
+                        Product Defaults
+                       </a>
+                       
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-md-6 col-sm-6 col-xs-12 paddnone">
+                            <div class="row">
+                              <div class="col-md-11 paddnone">
+                                <div class="form-group">
+                                  <label for="product-edit-fbsp-sku" class="col-md-6 col-sm-6 col-xs-5 control-label">EZY-SKU</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-7">
+                                    <p id="product-edit-fbsp-sku" class="form-control-static" ng-bind="model.fbspSkuId || constants.notAvailable"></p>
+                                  </div>
+                                </div>    
+                              </div>                             
+                            </div>
+							<div class="row">
+							 <div class="col-md-11 paddnone">
+                                <div class="form-group">
+                                  <label for="merchantSku" class="col-md-6 col-sm-6 col-xs-5 control-label">Merchant SKU</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-7">
+                                    <p id="product-edit-merchant-sku" class="form-control-static" ng-bind="model.sku || constants.notAvailable"></p>
+                                  </div>
+                                </div>    
+                              </div>
+							</div>
+                            <div class="row">
+                              <div class="col-md-11 paddnone">
+                                <div class="form-group">
+                                  <label for="ean" class="col-md-6 col-sm-6 col-xs-5 control-label">Product ID ({{model.codeType || constants.notAvailable}})</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-5">
+                                    <p id="product-edit-product-id" class="form-control-static" ng-bind="model.articleCode || constants.notAvailable"></p>
+                                  </div>
+                                </div>
+                              </div>
+							  </div>
+							  
+							  <div class="row">
+                              <div class="col-md-11 paddnone">
+                                <div class="form-group">
+                                  <label for="weight" class="col-md-6 col-sm-6 col-xs-5 control-label">Date Created</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-5 small-input">
+                                    <p id="product-edit-created-date" class="form-control-static" ng-bind="model.createdDate || constants.notAvailable"></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-11 paddnone">
+                                <div class="form-group">
+                                  <label for="weight" class="col-md-6 col-sm-6 col-xs-5 control-label">Date Last Modified</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-5 small-input">
+                                    <p id="product-edit-modified-date" class="form-control-static" ng-bind="model.modifiedDate || constants.notAvailable"></p>
+                                  </div>
+                                </div>
+                              </div>
+							  </div>
+							  <div class="row">
+                              <div class="col-md-11 paddnone">
+                                <div class="form-group">
+                                  <label for="weight" class="col-md-6 col-sm-6 col-xs-5 control-label">Date Since Inactive</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-5 small-input">
+                                    <p id="product-edit-inactive-date" class="form-control-static" ng-bind="model.dateInactive || constants.notAvailable"></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-xs-12 paddnone">
+                            <div class="row">
+                              <div class="col-sm-12 paddnone">
+                                <table class="table table-striped table-bordered">
+                                  <thead>
+                                    <tr class="theadbg">
+                                      <th colspan="2">Inventory</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Fulfillable</td><td id="product-edit-fulfillable-qty" ng-bind="model.qtyFulfillable || constants.notAvailable"></td>
+                                    </tr>
+                                    <tr>
+                                      <td>Damaged</td><td id="product-edit-damaged-qty" ng-bind="model.qtyDamaged || constants.notAvailable"></td>
+                                    </tr>
+                                    <!-- <tr>
+                                      <td>Reserved</td><td>1</td>
+                                    </tr> -->
+                                    <tr>
+                                      <td>Inbound</td><td id="product-edit-inbound-qty" ng-bind="model.qtyInShipment || constants.notAvailable"></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+							  
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-12 paddnone">
+                                <div class="form-group col-sm-5 paddnone">
+                                    <!-- <label>
+                                      <span class="{{model.isDangerous ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'}}"></span> Dangerous
+                                    </label>
+                                    <label>
+                                      <span class="{{model.isPerishable ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'}}"></span> Perishable
+                                    </label>  -->
+                                    <label class="col-md-4 col-sm-4 col-xs-4 control-label" id="product-edit-isfragile-label">
+                                      <span id="product-edit-isfragile-icon" class="{{model.isFragile ? 'glyphicon glyphicon-ok-tick' : 'glyphicon glyphicon-remove-cross'}}"></span> Fragile
+                                    </label>
+                                </div>
+                              </div>
+                            </div>
+							<div class="row">
+                              <div class="col-md-11 col-sm-11 col-xs-11 paddnone">
+                                <div class="form-group">
+                                  <label for="dimension" class="col-md-4 col-sm-4 col-xs-5 control-label">Dimensions L*B*H ({{model.dimensionUnit || constants.notAvailable}})</label>
+                                  <div class="col-md-8 col-sm-8 col-xs-7 three-input paddrgt0">
+                                    <p id="product-edit-dimension-length" class="form-control-static" ng-bind="model.length || constants.notAvailable"></p>
+                                    <p id="product-edit-dimension-width" class="form-control-static" ng-bind="model.width || constants.notAvailable"></p>
+                                    <p id="product-edit-dimension-height" class="form-control-static" ng-bind="model.height || constants.notAvailable"></p>
+                                  </div>
+                                </div>    
+                              </div>
+                            </div>
+							<div class="row">
+                              <div class="col-lg-11 paddnone">
+                                <div class="form-group">
+                                  <label for="weight" class="col-md-4 col-sm-4 col-xs-5 control-label">Weight ({{model.weightUnit || constants.notAvailable}})</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-5 small-input">
+                                    <p id="product-edit-weight" class="form-control-static" ng-bind="model.weight || constants.notAvailable"></p>
+                                  </div>
+                                </div>
+                              </div>
+							  </div>
+							
+							
+                          </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default col-md-5 col-sm-12 col-xs-12 paddnone">
+                    <div class="panel-heading" data-toggle="collapse" data-target="#collapseTwo">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="product-edit-general-information">
+                        General Information
+                       </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group required">
+                              <label for="product-edit-productName" class="control-label">Product Name</label>                              
+                                <input name="product-edit-productName" type="text" class="form-control" id="product-edit-productName" placeholder="Product Name" ng-model="model.productName" maxlength="30"  required required-message="validationMessages.required" />                              
+                            </div>
+                          </div>
+						  
+						  <div class="col-md-6 col-sm-6 col-xs-12 paddnone">
+                            <div class="form-group required">
+                              <label for="product-edit-retailPrice" class="control-label">Retail Price</label>
+                              <div class="one-input-select">                                
+                                <div class="col-md-6 col-sm-6 col-xs-12 xstxt-marbtm">
+                                  <select id="product-edit-retailPriceCurrency" name="product-edit-retailPriceCurrency" class="form-control" ng-model="retailPriceCurrencyCtrl" required-message="validationMessages.required" required ng-options="item as item.currencyCode for item in currencyList track by item.currencyCode">
+                                    <option value="">Select</option>
+                                  </select>
+                                </div>
+								<div class="col-md-6 col-sm-6 col-xs-12 paddrgt0">
+                                  <input type="number" name="product-edit-retailPrice" min="0.01" class="form-control" id="product-edit-retailPrice" placeholder="Price" ng-model="model.retailPrice" ng-pattern="/^[0-9]+[\\.]?[0-9]{0,2}$/" invalid-message="validationMessages.required" required-message="validationMessages.required" required step="10"/>
+                                </div>
+                              </div>
+                            </div>    
+                          </div>                          
+						  </div>
+						  <div class="row">
+							<div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group required">
+                              <label for="product-edit-productCategory" class="control-label">Product Category</label>                              
+                                <select id="product-edit-productCategory" class="form-control" name="product-edit-productCategory" ng-model="mainProductCategoryCtrl"  required required-message="validationMessages.required" ng-options="item as item.name for item in categoryOptions track by item.value">
+                                  <option value="">Select</option>
+                                </select>                              
+                            </div>    
+                          </div>						  
+                        
+                          <div class="col-md-6 col-sm-6 col-xs-12 paddnone">
+                            <div class="form-group required">
+                              <label for="product-create-declaredValue" class="control-label">Declared value</label>
+                              <div class="one-input-select">
+                                <div class="col-md-6 col-sm-6 col-xs-12 xstxt-marbtm">
+                                  <select name="product-edit-declaredValueCurrency" id="product-edit-declaredValueCurrency" class="form-control" ng-model="declaredValueCurrencyCtrl" required-message="validationMessages.required" required ng-options="item as item.currencyCode for item in currencyList track by item.currencyCode">
+                                    <option value="">Select</option>
+                                  </select>
+								</div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 paddrgt0">
+								<input type="number" id="product-edit-declaredValue" name="product-edit-declaredValue" ng-model="model.declaredValue" class="form-control" ng-pattern="/^[0-9]+[\\.]?[0-9]{0,2}$/" placeholder="Value" invalid-message="validationMessages.required" required-message="validationMessages.required" required step="10"/>                                                             
+                              </div>
+								</div>
+						  </div>
+						  </div>
+						  </div>
+						  <div class="row">                         
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                              <label for="product-edit-manufacturer" class="control-label">Manufacturer</label>                              
+                                <input type="text" name="product-edit-manufacturer" class="form-control" id="product-edit-manufacturer" placeholder="Manufacturer" maxlength="60" ng-model="model.manufacturer" />                              
+                            </div>    
+                          </div>
+						   <div class="col-md-6 col-sm-6 col-xs-12 paddnone">
+                            <div class="form-group">
+                              <label for="product-edit-costprice" class="control-label">Cost Price</label>
+                              <div class="one-input-select">                                
+                                <div class="col-md-6 col-sm-6 col-xs-12 xstxt-marbtm">
+                                  <select class="form-control" id="product-edit-costPriceCurrency" name="product-edit-costPriceCurrency" ng-model="costPriceCurrencyCtrl" ng-options="item as item.currencyCode for item in currencyList track by item.currencyCode" validator="isCodeValid(costPriceCurrencyCtrl.currencyCode, model.costPrice)" invalid-message="validationMessages.required">
+                                    <option value="">Select</option>
+                                  </select>
+                                </div>
+								<div class="col-md-6 col-sm-6 col-xs-12 paddrgt0">
+                                  <input type="number" name="product-edit-costprice" class="form-control" id="product-edit-costprice" placeholder="Price" ng-model="model.costPrice" step="10"/>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                              <label for="product-edit-inventoryLevel" class="control-label">Inventory Alert Level</label>                              
+                                <input type="text" name="product-edit-inventoryLevel" class="form-control" id="product-edit-inventoryLevel" placeholder="Inventory Alert Level" ng-model="model.inventoryAlertLevel"/>                              
+                            </div>    
+                          </div>
+                          <div class="col-md-6 col-sm-6 col-xs-12 paddnone">
+                            <div class="form-group">
+                              <label for="remarks" class="control-label">Remarks</label>                              
+                                <textarea class="form-control" name="product-edit-remarks" id="product-edit-remarks" placeholder="Remarks" row="4" maxlength="100" ng-model="model.remarks"></textarea>                              
+                            </div>    
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+				  </div>
+				 <div class="row"> 
+                  <div class="panel panel-default col-md-7 col-sm-12 col-xs-12  xstxt-padd0 smtxt-padd0 paddrgt20">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="product-edit-custom-declaration">
+                        Customs Declaration
+                       </a>
+                       <label class="pull-right">
+                        <input type="checkbox" id="product-edit-isExportable" name="product-edit-isExportable" ng-model="model.isExportable"> Is Exportable
+                      </label>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group" ng-class="{required : model.isExportable}">
+                              <label for="product-edit-customs-desc" class="control-label">Customs Item Description</label>                              
+                                <input type="text" ng-disabled="!model.isExportable" name="product-edit-customs-desc" ng-model="model.customsDescription" class="form-control" id="product-edit-customs-desc" placeholder="Customs description" invalid-message="validationMessages.required" validator= "isExportSelected(model.customsDescription)" maxlength="30" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="product-create-hsCode" class="control-label">HS Code</label>                              
+                                <input type="text" ng-disabled="!model.isExportable" name="product-create-hsCode" ng-model="model.hsCode" class="form-control" id="product-create-hsCode" placeholder="HS Code" invalid-message="validationMessages.invalidhscode" maxlength="30" validator= "isHsCodeValid(model.hsCode)" />                              
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12 paddnone">
+                            <div class="form-group" ng-class="{required : model.isExportable}">
+                              <label for="product-create-originCountry" class="control-label">Country of Origin</label>                              
+                                <select class="form-control" ng-disabled="!model.isExportable" name="product-edit-originCountry" ng-model="countryOfOriginCtrl" id="product-edit-originCountry" invalid-message="validationMessages.required" validator= "isExportSelected(countryOfOriginCtrl.countryCode)" ng-options="item as item.countryName for item in countryList track by item.countryCode">
+                                  <option value="">Select</option>
+                                </select>
+                              
+                            </div>    
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default col-md-5 col-sm-12 col-xs-12 paddnone">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" for="product-edit-additional-information">
+                        Additional Information 
+                       </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="addInfo1" class="control-label">Additional Info 1</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo1" name="product-edit-addInfo1" id="product-edit-addInfo1" maxlength="100" placeholder="Additional Info 1" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="addInfo2" class="control-label">Additional Info 2</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo2" name="product-create-addInfo2" id="product-create-addInfo2" maxlength="100" placeholder="Additional Info 2" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12 paddnone">
+                            <div class="form-group">
+                              <label for="addInfo3" class="control-label">Additional Info 3</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo3" name="product-edit-addInfo3" id="product-edit-addInfo3" maxlength="100" placeholder="Additional Info 3" />                              
+                            </div>    
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="addInfo1" class="control-label">Additional Info 4</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo4" name="product-edit-addInfo4" id="product-edit-addInfo4" maxlength="100" placeholder="Additional Info 4" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="addInfo2" class="control-label">Additional Info 5</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo5" name="product-edit-addInfo5" id="product-edit-addInfo5" maxlength="100" placeholder="Additional Info 5" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12 paddnone">
+                            <div class="form-group">
+                              <label for="addInfo3" class="control-label">Additional Info 6</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo6" name="product-edit-addInfo6" id="product-edit-addInfo6" maxlength="100" placeholder="Additional Info 6" />                              
+                            </div>    
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="addInfo1" class="control-label">Additional Info 7</label>                             
+                                <input type="text" class="form-control" ng-model="model.additionalInfo7" id="product-edit-addInfo7" id="product-edit-addInfo7" maxlength="100" placeholder="Additional Info 7" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="addInfo2" class="control-label">Additional Info 8</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo8" name="product-edit-addInfo8" id="product-edit-addInfo8" maxlength="100" placeholder="Additional Info 8" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12 paddnone">
+                            <div class="form-group">
+                              <label for="addInfo3" class="control-label">Additional Info 9</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo9" name="product-edit-addInfo9" id="product-edit-addInfo9" maxlength="100" placeholder="Additional Info 9" />                              
+                            </div>    
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="addInfo1" class="control-label">Additional Info 10</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo10" id="product-edit-addInfo10" id="product-edit-addInfo10" maxlength="100" placeholder="Additional Info 10" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group">
+                              <label for="addInfo2" class="control-label">Additional Info 11</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo11" name="product-edit-addInfo11" id="product-edit-addInfo11" maxlength="100" placeholder="Additional Info 11" />                              
+                            </div>    
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-xs-12 paddnone">
+                            <div class="form-group">
+                              <label for="addInfo3" class="control-label">Additional Info 12</label>                              
+                                <input type="text" class="form-control" ng-model="model.additionalInfo12" name="product-edit-addInfo12" id="product-edit-addInfo12" maxlength="100" placeholder="Additional Info 12" />                              
+                            </div>    
+                          </div>
+                        </div>
+                        <div class="row hide">
+                          <div class="col-sm-4 pull-right">
+                            <div class="pull-right">
+                              <label for="originCountry">Add a new line</label><button type="button" class="plus-btn btn btn-primary">+</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+				  </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-sm-12">
+                <label class="pull-right">
+                  <input type="checkbox" id="product-create-isactive" name="isActive" ng-model="model.isActive"> Is Active
+                </label>
+              </div>
+            </div> -->
+            <div class="btn-grp pull-right">
+              <label>
+                  <input type="checkbox" id="product-create-isactive" name="isActive" ng-model="model.isActive"> Is Active
+              </label>
+              <button type="button" class="btn btn-default" ng-click="back()">Cancel</button>
+              <button type="button" class="btn btn-danger" ng-click="archive(1)" ng-show="!model.dateArchived">Archive</button>
+                      <!--<button type="button" class="btn btn-danger" ng-click="archive(0)" ng-show="model.dateArchived">Restore</button>-->
+              <button class="btn btn-primary" type="submit">Save</a>
+            </div>
+        </form>
+       </div>
+      </div>
+    </section>
+  </div>
+</div>
+</section>

@@ -1,0 +1,81 @@
+<aside class="full">
+  <article class="widget-nav">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="javascript:;" ng-click="toggleLeftNav()" title="Expand/Collapse" class="glyphicon glyphicon-resize-horizontal" id="product-nav"></a><span class="full expOrCol">Account Settings</span>
+        </li>
+        <li ng-class="isNavActive('accounts','editProfile', 'default')" class="list-group-item">
+          <a href="#/accounts/editProfileIndividual" title="Edit Profile" id="product-nav-create"><span class="glyphicon glyphicon-plus-sign"></span><span class="full expOrCol">Edit Profile</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','connections')" class="list-group-item">
+          <a href="#/accounts/connections" title="Connections" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Connections</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','noCreditCard')" class="list-group-item">
+          <a href="#/accounts/noCreditCard" title="No Credit Card" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Manage Credit Card</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','userAccounts')" class="list-group-item">
+          <a href="#/accounts/userAccounts" title="User Accounts" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">User Account</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','addressBook')" class="list-group-item">
+          <a href="#/accounts/addressBook" title="Address Book" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Address Book</span></a>
+        </li>
+      </ul>
+  </article>
+
+    <article class="widget-nav">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="javascript:;" ng-click="toggleLeftNav()" title="Expand/Collapse" class="glyphicon glyphicon-resize-horizontal" id="product-nav"></a><span class="full expOrCol">Billing</span>
+        </li>
+        <li ng-class="isNavActive('accounts','billingSummary')" class="list-group-item">
+          <a href="#/accounts/billingSummary" title="Billing Summary" id="product-nav-create"><span class="glyphicon glyphicon-plus-sign"></span><span class="full expOrCol">Summary</span></a>
+        </li>
+        <!--<li ng-class="isNavActive('accounts','changePlan')" class="list-group-item">
+          <a href="#/accounts/changePlan" title="Change Plan" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Change Plan</span></a>
+        </li>-->
+        <li ng-class="isNavActive('accounts','fulfillmentCost')" class="list-group-item">
+          <a href="#/accounts/fulfillmentCost" title="Fulfillment Cost" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Fulfillment Cost</span></a>
+        </li>
+      </ul>
+  </article>
+
+  <article class="widget-nav">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="javascript:;" ng-click="toggleLeftNav()" title="Expand/Collapse" class="glyphicon glyphicon-resize-horizontal" id="product-nav"></a><span class="full expOrCol">Preferences</span>
+        </li>
+        <li ng-class="isNavActive('accounts','orderFulfillment')" class="list-group-item">
+          <a href="#/accounts/orderFulfillment" title="Order Fulfillment" id="product-nav-create"><span class="glyphicon glyphicon-plus-sign"></span><span class="full expOrCol">Order Fulfillment</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','printSetup')" class="list-group-item">
+          <a href="#/accounts/printSetup" title="Print Setup" id="product-nav-create"><span class="glyphicon glyphicon-plus-sign"></span><span class="full expOrCol">Print Setup</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','email')" class="list-group-item">
+          <a href="#/accounts/email" title="Email" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Email</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','others')" class="list-group-item">
+          <a href="#/accounts/others" title="Others" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Others</span></a>
+        </li>
+      </ul>
+  </article>
+
+    <article class="widget-nav">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="javascript:;" ng-click="toggleLeftNav()" title="Expand/Collapse" class="glyphicon glyphicon-resize-horizontal" id="product-nav"></a><span class="full expOrCol">Reports</span>
+        </li>
+        <li ng-class="isNavActive('accounts','productsReport')" class="list-group-item">
+          <a href="#/accounts/productsReport" title="Products Report" id="product-nav-create"><span class="glyphicon glyphicon-plus-sign"></span><span class="full expOrCol">Products</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','shipmentsReport')" class="list-group-item">
+          <a href="#/accounts/shipmentsReport" title="Shipments Report" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Shipments</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','ordersReport')" class="list-group-item">
+          <a href="#/accounts/ordersReport" title="Orders Report" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Orders</span></a>
+        </li>
+        <li ng-class="isNavActive('accounts','paymentsReport')" class="list-group-item">
+          <a href="#/accounts/paymentsReport" title="Payments Report" id="product-nav-upload"><span class="glyphicon glyphicon-upload"></span><span class="full expOrCol">Payments</span></a>
+        </li>
+      </ul>
+  </article>
+</aside>

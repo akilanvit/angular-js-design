@@ -1,0 +1,199 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form" class="form-horizontal" name="edit_product"
+              novalidate angular-validator angular-validator-submit="">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="pull-left">Create New Sub Account</h2>
+                </div>
+              </div>
+
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div data-toggle="collapse" data-target="#collapseOne"
+                    class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="javascript:;" id="product-edit-product-defaults">
+                        Information </a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="fullName" class="col-sm-5 control-label">Full Name
+                              </label>
+                            <div class="col-sm-7">
+                              <input name="fullName" type="text"
+                                class="form-control" id="fullName"
+                                placeholder="Full Name" ng-model="model.fullName"
+                                required required-message="validationMessages.required" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="email" class="col-sm-5 control-label">Email
+                              </label>
+                            <div class="col-sm-7">
+                              <input name="email" type="text"
+                                class="form-control" id="newPassword"
+                                placeholder="Email" ng-model="model.email"
+                                required required-message="validationMessages.required" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="password" class="col-sm-5 control-label">Password
+                              </label>
+                            <div class="col-sm-7">
+                              <input name="password" type="text"
+                                class="form-control" id="password"
+                                placeholder="Password"
+                                ng-model="model.password" required
+                                required-message="validationMessages.required" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="confirmPassword" class="col-sm-5 control-label">Confirm
+                              Password</label>
+                            <div class="col-sm-7">
+                              <input name="confirmPassword" type="text"
+                                class="form-control" id="confirmPassword"
+                                placeholder="Retype Password"
+                                ng-model="model.confirmPassword" required
+                                required-message="validationMessages.required" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div data-toggle="collapse" data-target="#collapseOne"
+                    class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="javascript:;" id="product-edit-product-defaults">
+                        Permission</a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                   
+
+        <div class="row">
+
+          <div class="col-sm-12">
+             <div class="row">
+                  <strong><label for="fullName" class="col-sm-12">Choose which modules can be viewed</label></strong>
+            </div>
+             <div class="row">
+                   <label for="fullName" class="col-sm-12">Allows the user to view selected modules</label>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Dashboard
+              </div>
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Products
+              </div>
+               <div class="col-sm-12">
+                <input type="checkbox" name="action">Shipments
+              </div>
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Orders
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Create/Edit Products
+              </div>
+               <label  for="fullName" class="col-sm-12">Access to create, modify and perform actions on products</label>
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Create/Edit Shipments
+              </div>
+              <label  for="fullName" class="col-sm-12">Access to create inbound plans, cannot ship Orders</label>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Create/Edit Orders
+              </div>
+              <label  for="fullName" class="col-sm-12">Access to create and modify orders, cannot approve for Order Fulfillment</label>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Approve Orders
+              </div>
+              <label  for="fullName" class="col-sm-12">Access to approving orders for fulfillment</label>
+            </div>    
+
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Reporting
+              </div>
+              <label  for="fullName" class="col-sm-12">Access to download All Reports</label>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Billing
+              </div>
+              <label  for="fullName" class="col-sm-12">Access to view the outstanding amount and download monthly bill</label>
+            </div> 
+
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="checkbox" name="action">Connections
+               </div>
+              <label  for="fullName" class="col-sm-12">Access to add and modify channels/marketplaces</label>
+            </div>
+
+          </div>
+        </div>
+ 
+
+                       <div class="row">
+                        <div class="col-sm-4">
+                          <button class="btn btn-success pull-right col-sm-6"
+                            type="submit">Save Changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

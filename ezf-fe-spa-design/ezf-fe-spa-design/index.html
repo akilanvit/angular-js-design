@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-controller="Base" ng-init="init()">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ezyCommerce</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="lib/nvd3/nv.d3.min.css">
+    <link rel="stylesheet" href="styles/toaster.css" />
+    <link rel="stylesheet" href="lib/datepicker/datepicker.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    
+    <!-- theme starts -->
+    <link rel="stylesheet" href="styles/theme.css" />
+    <!-- theme ends -->
+    
+    
+    <script data-main="scripts/main" src="lib/require/require.js"></script>
+
+  </head>
+
+  <body ng-cloak class="ng-cloak ezyBase ezyThemeOne">
+      <ng-include ng-hide="!isLoggedIn" src="'views/shared/header.html'"></ng-include>
+      <ng-include src="'views/shared/base.html'"></ng-include>
+      <ng-view></ng-view>
+      <ng-include src="'views/shared/footer.html'"></ng-include>
+  </body>
+
+</html>

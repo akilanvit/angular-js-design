@@ -1,0 +1,92 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full widget-form">
+          <div class="row">
+            <div class="col-sm-12">
+              <form role="form"  name="create_product" novalidate angular-validator angular-validator-submit="">
+                <h2 class="thHead">Other Preferences</h2>
+                <div class="container-fluid">
+                  <div class="row paddbtm30" >
+                    <div class="col-sm-12 col-lg-9 paddnone" >
+                      <div class="thHeadIco glyphicon glyphicon-folder-close col-lg-1 col-sm-1 hidden-xs"></div>
+                        <div class="thContent col-lg-11 col-sm-10" >
+                          Enter the information to be printed on the packing slip which is placed with every order
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              <div class="panel-group">
+                <div class="row paddbtm20 xstxt-padd0">
+                  <div class="panel panel-default col-md-12 col-sm-12 col-xs-12 xstxt-padd0 smtxt-padd0 paddrgt20">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="pref-others-panel">Others</a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body padall2">
+                       
+                        <div class="row">
+                          <div class="col-md-1 col-sm-1 col-xs-1">
+                            <input type="checkbox" id="pref-others-name-packingList" class="chkpadd" name="pref-others-name-packingList" ng-model="model.isNameOnPackingList">
+                          </div>
+                          <div class="col-md-11 col-sm-11 col-xs-10">
+                             <div class="form-group">
+                                <label class="control-label">Enter the name to be printed on the packing List at the header level </label>    
+                                <div class="col-sm-12 col-md-12 col-xs-12">
+                                  <em class="text-muted">This is typically your brand name and how the cutsomers identify you in the market</em>
+                                </div>
+
+                                <div class="col-sm-6 col-md-6 col-xs-12" style="padding:1%">
+                                  <textarea id="pref-others-brandName" name="pref-others-brandName" class="form-control" rows="4" cols="7" ng-model="model.brandName"></textarea>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-xs-12" >
+                                  <em class="text-muted">23 characters left</em>
+                                </div>
+                            </div> 
+                          </div>
+                        </div>
+
+
+
+                        <div class="row">
+                          <div class="col-md-1 col-sm-1 col-xs-1">
+                            <input type="checkbox" id="pref-others-footer-packingList" class="chkpadd" name="pref-others-footer-packingList" ng-model="model.isFooterInfoOnPackingList">
+                          </div>
+                          <div class="col-md-11 col-sm-11 col-xs-10">
+                             <div class="form-group">
+                                <label class="control-label">Enter the footer information to be printed on the packing list (if any)</label>    
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <em class="text-muted">It can be any message that you want to convey to your customers</em>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-xs-12" style="padding:1%">
+                                   <textarea id="pref-others-footerInfo" name="pref-others-footerInfo" class="form-control" rows="4" cols="7" ng-model="model.footerInfo"></textarea>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-xs-12" >
+                                  <em class="text-muted">23 characters left</em>
+                                </div>
+                            </div> 
+                          </div>
+                          <div class="btn-grp pull-right formbtn">
+                              <div class="form-xsbtnbtm pull-right">
+                                <button id="pref-others-save-btm" class="btn btn-primary" type="submit">Save</button>
+                                <button id="pref-others-cancel-btm" type="button" class="btn btn-default" ng-click="back()">Cancel</button>              
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+         </div>
+       </section>
+    </div>
+  </div>
+</section>

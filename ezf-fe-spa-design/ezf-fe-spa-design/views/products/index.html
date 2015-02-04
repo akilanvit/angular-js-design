@@ -1,0 +1,319 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/products/nav.html'"></ng-include>
+      <section class="content full">
+        <h2 class="thHead">Product Catalog</h2>
+        
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12 col-lg-9 padd0">
+              <div class="thHeadIco glyphicon glyphicon-folder-close col-lg-1 col-sm-1 hidden-xs"></div>
+              <div class="thContent col-lg-11 col-sm-10">
+                Create and manage your product catalog here. Add products one at a time by typing the product information or in bulk by uploading a file using our standard template. Once Products are created and activated, you can use them to create shipments, orders and do more.
+              </div>
+              </div>
+          </div>
+        </div>
+        
+        <div class="clear"></div>
+        <h4 class="sub-head thSubHead">Search Products</h4>
+        <form class="form-inline" role="form">
+          <div class="row padBtm15px">
+            <div class="col-sm-12">
+              <div class="form-group" id="suggestion-holder">
+                <label class="sr-only" for="product-search-text">Search Products</label>
+                <div class="input-group selectboxhldr">
+                      <div class="thAll" multi-select input-model="productFilterOptions" button-label="name" item-label="name" tick-property="ticked" selection-mode="single" helper-elements="" output-model="searchColumn" id="product-search-column" on-item-click="findSuggestion(searchKey, searchColumn)"></div>
+                    <input type="text" class="thSearch form-control" id="product-search-text" placeholder="Search" ng-model="searchKey" ng-focus="findSuggestion(searchKey, searchColumn)" ng-change="findSuggestion(searchKey, searchColumn)" />
+                </div>
+                <div class="list-group suggestion-box" id="product-search-suggestion" ng-if="suggestions.length">
+                  <a ng-repeat="suggest in suggestions" ng-href="#/products/edit/{{suggest.fbspSkuId}}" class="list-group-item">
+                      <span ng-bind-html="highlightSuggest(suggest.productName, searchKey)"></span>
+                      <em ng-bind-html="'PRODUCT ID: ' + highlightSuggest(suggest.productId, searchKey) + ','"></em>
+                      <em ng-bind-html="'EZY-SKU: ' + highlightSuggest(suggest.fbspSkuId, searchKey) + ','"></em>
+                      <em ng-bind-html="'SKU: ' + highlightSuggest(suggest.sku, searchKey)"></em>
+                    </a>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="product-date-range">Created Date Range</label>
+                <div class="input-group product-date thCreDate">
+                  <div multi-select input-model="dateOptions" output-model="date" button-label="name" item-label="name" tick-property="ticked" selection-mode="single" helper-elements="none" default-label="Created Date Range" disable-property="label" id="product-date-range"></div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="sr-only" for="searchProducts">Product Category</label>
+                <div class="input-group product-category thCat">
+                  <div multi-select input-model="categoryOptions" output-model="category" button-label="name" item-label="name" tick-property="ticked" max-labels="1" default-label="Product Category" min-width="300px" max-height="220px" helper-elements="all none filter" id="product-search-category"></div>
+              </div>
+            </div>
+            <div class="form-group" ng-show="isOptionVisible('inventory')">
+                <label class="sr-only" for="searchProducts">Inventory</label>
+                <div class="input-group product-inventory thInve">
+                  <div multi-select input-model="inventoryOptions" output-model="inventory" button-label="name" item-label="name" tick-property="ticked" helper-elements="none" default-label="Inventory" selection-mode="single" disable-property="label" id="product-search-inventory"></div>
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group thAppFil">
+                  <button class="btn btn-primary thButton" ng-click="applyFilter()" id="product-search-apply">Apply Filter</button>
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group thAppRst">
+                  <button class="btn btn-default" ng-click="resetFilter()" id="product-action-reset">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-sm-2 col-lg-4 actions">
+            <div class="form-group">
+              <label class="sr-only" for="searchProducts">Actions</label>
+              
+                <div class="input-group">
+                  <!-- <input type="checkbox" name="action" /> -->
+                  <div class="btn-group thAppAct">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="product-search-action">
+                      Action <span class="caret"></span>
+                    </button>
+                    <span class="rowCount" ng-if="gridOptions.selectedItems.length">{{gridOptions.selectedItems.length}} row(s) selected</span>
+                    <ul class="dropdown-menu" role="menu">
+                      <li ng-if="isOptionVisible('shipment')"><a href="javascript:;" id="product-action-create-shipment">Create Shipment</a></li>
+                      <li ng-if="isOptionVisible('fulfillment')" class="noBorder"><a href="javascript:;" id="product-action-create-fulfillment">Create Fulfillment Order</a></li>
+                      <li ng-if="isOptionVisible('removal')"><a href="javascript:;" id="product-action-create-removal">Create Removal Order</a></li>
+                      <li ng-if="isOptionVisible('active')"><a href="javascript:;" id="product-action-make-active">Make Active</a></li>
+                      <li ng-if="isOptionVisible('inactive')" class="noBorder"><a href="javascript:;" id="product-action-make-inactive">Make Inactive</a></li>
+                      <li ng-if="isOptionVisible('archived')"><a href="javascript:;" id="product-action-archive">Archive</a></li>
+                      <li ng-if="isOptionVisible('restore')"><a href="javascript:;" id="product-action-restore">Restore</a></li>
+                    </ul>
+                  </div>
+                  
+                </div>
+            </div>
+              <div class="form-group thDateFrom" ng-show="date[0].value=='custom'">
+                  <label class="sr-only" for="product-search-fromdate">From Date</label>
+                  <div class="input-group">
+                      <input type="text" class="form-control" id="product-search-fromdate" ng-model="fromdate" data-date-format="dd/mm/yyyy" readonly/>
+                      <label class="input-group-addon" for="product-search-fromdate"><i class="glyphicon glyphicon-calendar"></i></label>
+                  </div>
+
+              </div>
+              <div class="form-group thDateTo" ng-show="date[0].value=='custom'">
+                  <label class="sr-only" for="product-search-todate">To Date</label>
+                  <div class="input-group">
+                      <input type="text" class="form-control" id="product-search-todate" ng-model="todate" data-date-format="dd/mm/yyyy" readonly/>
+                      <label class="input-group-addon" for="product-search-todate"><i class="glyphicon glyphicon-calendar"></i></label>
+                  </div>
+              </div>
+              
+              <span class="rowSelectedTxt" ng-if="showSelected">
+                <span ng-bind="showSelectedLength"></span> row(s) selected
+              </span>
+              
+          </div>
+          <div class="col-sm-10 col-lg-8">
+            <div class="pull-right">
+          <div class="showingPage pull-left" ng-if="myData.length">
+            Showing {{fromRecord}}-{{toRecord}} of {{totalRecord}} products
+          </div>
+          
+          <div class="views pull-left" ng-if="myData.length">
+             view <select ng-model="pagingOptions.pageSize" class="showingView">
+                    <option ng-repeat="size in pagingOptions.pageSizes">{{size}}</option>
+                  </select> per page
+          </div>
+          
+          <div class="pagingout pull-left">
+
+             <ul class="pagingContainer" ng-if="myData.length">
+              <li><a href="javascript:void(0)" class="pageFirst"><span ng-click="paging(1)">&lt;&lt;</span></a></li>
+              <li><a href="javascript:void(0)" class="paging"><span ng-click="paging(pagingOptions.currentPage-1)">&lt;</span></a></li>
+
+               <li ng-repeat="pageSizeClicks in pageSize.pageSizeClickLength" ng-class="{pageHighLight:pageSizeClicks == pagingOptions.currentPage}">
+                <a ng-class="{pageHighLightColor:pageSizeClicks == pagingOptions.currentPage}" href="javascript:void(0);" ng-click="paging(pageSizeClicks)"><span>{{pageSizeClicks}}</span></a>
+              </li>
+
+              <li><a href="javascript:void(0)" class="paging"><span ng-click="paging(pagingOptions.currentPage+1)">&gt;</span></a></li>
+              <li><a href="javascript:void(0)" class="pageLast"><span ng-click="paging(pagingOptions.currentPage+1, 'last')">&gt;&gt;</span></a></li>
+             </ul>
+             
+          </div>
+          
+          <div class="sort txtRight pull-left">
+            
+            <div class="form-group">
+              <label class="sr-only" for="searchProducts">Sort By: Category</label>
+              
+                <div class="input-group">
+                  <!-- <input type="checkbox" name="action" /> -->
+                  <div class="btn-group thAppAct thAppSort">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="product-sort-category">
+                      Sort By : <span ng-bind="sortingOptions.name"></span>
+                    </button>
+                    <button type="button" class="btn btn-primary" id="product-sort-action" ng-click="sortDirection()">
+                      <span ng-class="{'glyphicon glyphicon-sort-cat':!sortLogo(),'glyphicon glyphicon-sort-cat-asc':sortLogo()}"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li ng-click="sort('fbspSkuId', 'EZY-Sku')"><a href="javascript:;" id="product-action-create-shipment">EZY-SKU</a></li>
+                      <li ng-click="sort('sku', 'Merchant Sku')"><a href="javascript:;" id="product-action-create-shipment">Merchant SKU</a></li>
+                      <li ng-click="sort('mainProductCategory','Category')"><a href="javascript:;" id="product-action-create-fulfillment">Product Category</a></li>
+                      <li ng-click="sort('createdDate','Date Created')"><a href="javascript:;" id="product-action-create-shipment">Created Date</a></li>
+                      <li ng-click="sort('modifiedDate','Modified Date')"><a href="javascript:;" id="product-action-modified-shipment">Modified Date</a></li>
+                      <li ng-if="sortOptionVisible('dateInActive')" ng-click="sort('dateInActive','Date Since Inactive')"><a href="javascript:;" id="product-action-create-shipment">Date Since Inactive</a></li>
+                      <li ng-click="sort('productName','Product Name')"><a href="javascript:;" id="product-action-create-fulfillment">Product Name</a></li>
+                      <li ng-if="sortOptionVisible('qtyFulfillable')" ng-click="sort('qtyFulfillable','Fulfillable')"><a href="javascript:;" id="product-action-create-fulfillment">Fulfillable</a></li>
+                      <li ng-if="sortOptionVisible('qtyDamaged')" ng-click="sort('qtyDamaged','Damaged')"><a href="javascript:;" id="product-action-create-fulfillment">Damaged</a></li>
+                      <li ng-if="sortOptionVisible('qtyInShipment')" ng-click="sort('qtyInShipment','Inbound')"><a href="javascript:;" id="product-action-create-fulfillment">Inbound</a></li>
+                      <li ng-if="sortOptionVisible('inventoryAlertLevel')" ng-click="sort('inventoryAlertLevel','Alert Level')"><a href="javascript:;" id="product-action-create-fulfillment">Alert Level</a></li>
+                    </ul>
+                  </div>
+                  
+                </div>
+            </div>
+          </div>
+          </div>
+            </div>
+        </div>
+        
+      </form>
+      <div class="widget-table">
+        <!-- <div class="action-palette">
+              <label class="sr-only" for="searchProducts">Actions</label>
+              <div class="input-group">
+                 <input type="checkbox" name="action" /> 
+                <div class="btn-group">
+                   <button type="button" class="btn btn-link" data-toggle="dropdown">Actions</button> 
+                  <button type="button" title="Action" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="javascript:;">Create Shipment</a></li>
+                    <li><a href="javascript:;">Create Fulfillment Order</a></li>
+                    <li><a href="javascript:;">Create Removal Order</a></li>
+                    <li><a href="javascript:;">Make Active</a></li>
+                    <li><a href="javascript:;">Make Inactive</a></li>
+                    <li><a href="javascript:;">Archive</a></li>
+                    <li><a href="javascript:;">Restore</a></li>
+                  </ul>
+                </div>
+              </div>
+        </div> -->
+      <!-- <div class="gridStyle landing-page" show-empty-msg ng-grid="gridOptions" id="product-list-grid"></div> -->
+      
+      <div class="newGridContainer container-fluid">
+        
+        <div class="row proHeader">
+          <div class="proHeaEditH col-xs-12 col-sm-1 col-md-1">
+            <div class="checkboxFive">
+              <input type="checkbox" value="" id="" name="" ng-click="toggleCheckBox()" ng-model="toggleCheckBoxVal" />
+              <!--<span class="glyphicon glyphicon-checkbox"></span>-->
+            </div>
+          </div>
+          <div class="proHeaMerH col-xs-12 col-sm-4 col-md-2">Product</div>
+          <div class="proHeaCatH col-xs-12 col-sm-3 col-md-2">Category</div>
+          <div class="proHeaDimH col-xs-12 col-sm-3 col-md-2">Size & Weight</div>
+          <div class="proHeaDateH col-xs-12 col-sm-5 col-md-2">Date</div>
+          <div class="proHeaInvH col-xs-12 col-sm-4 col-md-2">Inventory</div>
+          <div class="proHeaAleH col-xs-12 col-sm-3 col-md-1">Alert level</div>
+        </div>
+        <div class="clear"></div>
+        
+       
+        <div class="row proRow" ng-class="{rowSelected:product.Selected}" ng-repeat="product in myData">
+            
+          <div class="proHeaEdit col-xs-12 col-sm-1 col-md-1">
+            <div class="checkboxFive">
+              <!--<input type="checkbox" value="" id="" name="" ng-model="product.Selected" class="ezyCheckBox" ng-class="{'glyphicon glyphicon-checkbox':!product.Selected,'glyphicon glyphicon-checkbox-checked':product.Selected}"/>-->
+              <input type="checkbox" value="" id="" name="" ng-model="product.Selected"/>
+                <!--<span class="glyphicon glyphicon-checkbox"></span>-->
+            </div>
+          </div>
+          
+          <div class="proHeaMer col-xs-12 col-sm-5 col-md-3">
+            <div class="skU">
+              <div ng-class="{'actCircle' : getCircle(product.isActive), 'actCircleInact' : !getCircle(product.isActive)}"></div>
+              <span data-toggle="tooltip" data-placement="top" title="Product SKU" ng-bind="product.sku || constants.notAvailableText | addEllipse:20">
+
+              </span>
+              <div class="editFlight">
+               <!-- <a id="fbsp-{{product.fbspSkuId}}" ng-href="#/products/view/{{product.fbspSkuId}}" title="view"><span class="glyphicon glyphicon-view-grid"></span></a>-->
+                <a id="edit-{{product.fbspSkuId}}" ng-href="#/products/edit/{{product.fbspSkuId}}" data-toggle="tooltip" data-placement="top" title="Edit"><span class="glyphicon glyphicon-edit-grid"></span></a>
+                <span  data-toggle="tooltip" data-placement="top" title="{{(product.isExportable) ? 'Exportable' : 'Non-Exportable'}}" ng-class="{'glyphicon glyphicon-flight-grid' : !product.isExportable, 'glyphicon glyphicon-flight-ok-grid' : product.isExportable}"></span>
+              </div>
+            </div>
+            <div class="proName">
+             <span data-toggle="tooltip" data-placement="top" title="Product Name">{{product.productName | addEllipse:30}}</span>
+            </div>
+            <div class="eSku">
+              <span class="">EZY-SKU : {{product.fbspSkuId}}</span>
+              <span class="eEan" ng-if="product.codeType">{{product.codeType}} : {{product.articleCode}}</span>
+            </div>
+          </div>
+          
+          <div class="proHeaCat col-xs-12 col-sm-2 col-md-1">
+            {{getCategory(product.mainProductCategory) | addEllipse:20 }}
+          </div>
+          
+          <div class="proHeaDim col-xs-12 col-sm-3 col-md-2">
+            <div>
+			 <span data-toggle="tooltip" data-placement="top" title="Length x Width x Height">
+              {{product.length || constants.notAvailableText}} x {{product.width || constants.notAvailableText}} x {{product.height || constants.notAvailableText}} {{product.dimensionUnit || constants.notAvailableText}}
+            </div>
+            <div>
+			<span data-toggle="tooltip" data-placement="top" title="Weight"> 	
+              <span class="txtItalic">{{product.weight}}</span>
+              <span class="kg txtItalic">{{product.weightUnit}}</span>
+			</span>
+            </div>
+          </div>
+          
+          <div class="proHeaDate col-xs-12 col-sm-8 col-md-3">
+            <div class="crDate">
+              {{createdText()}} : {{product.createdDate || constants.notAvailableText}}
+            </div>
+            <div class="lsDate">
+              Modified : {{product.modifiedDate || constants.notAvailableText}}
+            </div>
+          </div>
+          
+          <div class="proHeaInv col-xs-12 col-sm-3 col-md-2">
+            <div class="fullFill fullColor txtBold">
+              Fullfillable : {{product.qtyFulfillable || '0' }}
+            </div>
+            <div class="damInbound">
+              <span class="dam txtItalic damColor">
+                Damaged : {{product.qtyDamaged || '0' }}
+              </span>
+              <span class="inb txtItalic">Inbound : {{product.qtyInShipment || '0'}}</span>
+            </div>
+          </div>
+          
+          <div class="proHeaAle col-xs-12 col-sm-1 col-md-1">
+            {{getInventoryAlertLevel(product.inventoryAlertLevel)}}
+          </div>
+          
+        </div>
+        
+        <div class="clearfix"></div>
+        
+        <div class="row proRow" ng-if="!myData.length">
+            
+          <div class="noRecordDisplay col-xs-12 col-sm-12 col-md-12">
+            No data to display
+          </div>
+          
+        </div>
+        
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    </div>
+  </section>
+</div>
+</div>
+</section>

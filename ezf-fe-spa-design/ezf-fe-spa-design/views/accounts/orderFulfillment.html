@@ -1,0 +1,281 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full widget-form">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form"  name="order-fulfillment" novalidate angular-validator angular-validator-submit="">
+              <h2 class="thHead">Fulfillment</h2>
+              <div class="container-fluid">
+                <div class="row paddbtm30">
+                  <div class="col-sm-12 col-lg-9 paddnone">
+                    <div class="thHeadIco glyphicon glyphicon-myAccount-orderPreference col-lg-1 col-sm-1 hidden-xs"></div>
+                      <div class="thContent col-lg-11 col-sm-10">
+                        Manually fill up the fields to create a product. No two products must have the same Merchant SKU. Apply Customs declaration information to be used in future orders. Fields marked with asterisk ( * ) are mandatory
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="panel-group">
+                <div class="row paddbtm20 xstxt-padd0">
+                 <!-- 1st Panel Starts -->
+                  <div class="panel panel-default col-md-6 col-sm-12 col-xs-12 xstxt-padd0 smtxt-padd0 paddrgt20">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="pref-ordsful-order-defaults">Order Defaults</a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                      <div class="panel-body padall2">
+                        <div class="row">
+                          <div class="col-md-6 col-sm-6 col-xs-12" >
+                            <div class="form-group required">
+                                  <input type="checkbox" id="pref-ordsful-isinternationalOrders" class="chkpadd" name="pref-ordsful-isinternationalOrders" ng-model="model.isinternationalOrders"> International Orders             
+                            </div>    
+                          </div>
+                        </div>
+                          <div class="row">
+                            <div class="col-md-12 paddnone">
+                              <div class="form-group">
+                                <label for="pref-ordsful-category-shipment" class="col-md-5 col-sm-3 col-xs-12 control-label label-leftIndent">Category of Shipment</label>
+                                <div class="col-md-5 col-sm-6 col-xs-12 control-next-align">
+                                  <select id="pref-ordsful-category-shipment" class="form-control" name="pref-ordsful-category-shipment" ng-model="shipmentCategory"  required required-message="validationMessages.required" ng-options="item as item.name for item in shipmentCategoryOptions track by item.value">
+                                  <option value="">Select</option>
+                                </select>  
+                                </div>
+                              </div>    
+                            </div>                             
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 paddnone">
+                                <div class="form-group">
+                                  <label for="pref-ordsful-non-delInstructions " class="col-md-5 col-sm-3 col-xs-12 control-label label-leftIndent">Non Delivery Instructions</label>
+                                  <div class="col-md-5 col-sm-6 col-xs-12 control-next-align">
+                                    <select id="pref-ordsful-non-delInstructions" class="form-control" name="pref-ordsful-non-delInstructions" ng-model="nonDelInstruction" required required-message="validationMessages.required" ng-options="item as item.name for item in nonDelInstructionsOptions track by item.value">
+                                      <option value="">Select</option>
+                                    </select>  
+                                  </div>
+                                </div>    
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <div class="form-group required">
+                                    <input type="checkbox" id="pref-ordsful-isShippingDefaults" class="chkpadd" name="pref-ordsful-isShippingDefaults" ng-model="model.isShippingDefaults"> Shipping Defaults      
+                              </div>    
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 paddnone">
+                              <div class="form-group">
+                                <label for="pref-ordsful-domesticOrder" class="col-md-5 col-sm-3 col-xs-12 control-label label-leftIndent">Domestic Orders</label>
+                                <div class="col-md-5 col-sm-6 col-xs-12 control-next-align ">
+                                  <select id="pref-ordsful-domesticOrder" class="form-control" name="pref-ordsful-domesticOrder" ng-model="domesticOrder"  required required-message="validationMessages.required" ng-options="item as item.name for item in domesticOrderOptions track by item.value">
+                                  <option value="">Select</option>
+                                </select>  
+                                </div>
+                              </div>    
+                            </div>                             
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 paddnone">
+                                <div class="form-group">
+                                  <label for="pref-ordsful-internationalOrder" class="col-md-5 col-sm-3 col-xs-12 control-label label-leftIndent">International Orders</label>
+                                  <div class="col-md-5 col-sm-6 col-xs-12 control-next-align">
+                                    <select id="pref-ordsful-internationalOrder" class="form-control" name="pref-ordsful-internationalOrder" ng-model="internationalOrder"  required required-message="validationMessages.required" ng-options="item as item.name for item in internationalOrderOption track by item.value">
+                                  <option value="">Select</option>
+                                </select>  
+                                  </div>
+                                </div>    
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="form-group required">
+                                <input type="checkbox" id="pref-ordsful-isAddInsurance" class="chkpadd" name="pref-ordsful-isAddInsurance" ng-model="model.isAddInsurance"> Add Insurance for the total Declared Value             
+                              </div>    
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                     <!-- 2nd Panel Starts -->
+                    <div class="panel panel-default col-md-6 col-sm-12 col-xs-12 paddnone">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a href="javascript:;" id="pref-ordsful-automatic-fulfillment">Automatic Fulfillment</a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body padall2">
+
+                          <div class="row inset-row" >
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12 label-align-text" >Auto Pilot mode </label>
+                               <div class="col-md-7 col-sm-5 col-xs-12">
+                                
+                                    <div class="onoffswitch">
+                                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                                      <label class="onoffswitch-label" for="myonoffswitch">
+                                          <span class="onoffswitch-inner"></span>
+                                          <span class="onoffswitch-switch"></span>
+                                      </label>
+                                    </div>
+                                
+                                </div>
+                          </div>
+
+                          <div class="row padall2" >
+                            <div class="col-sm-12">
+                              <em class="text-danger">When activated, Ordrers will be automatically shipped to your customers by applying the below preferences. An email will be sent if an order has issues</em>
+                            </div>
+                          </div>
+
+                          <div class="row padall2">
+                            <div class="col-md-1 col-sm-1 col-xs-1">
+                              <input type="checkbox" id="pref-ordsful-autoFul-domOrder" class="chkpadd" name="pref-ordsful-autoFul-domOrder" ng-model="model.isautoFuldomOrder">
+                            </div>
+                            <div class="col-md-11 col-sm-11 col-xs-10">
+                              <div class="form-group">
+                                  <label class="control-label">Domestic Orders : Hold orders above retail value greater than </label>
+                                  <select id="pref-ordsful-autoFul-domOrder-maxLimit" class="form-control inline-control" name="pref-ordsful-autoFul-domOrder-maxLimit" ng-model="domOrderMaxLimit"  required required-message="validationMessages.required" ng-options="item as item.name for item in orderMaxLimitOptions track by item.value">
+                                  <option value="">Select</option>
+                                </select> 
+                                 <label class="control-label">and notify via</label>
+                                 <select id="pref-ordsful-autoFul-domOrder-notification" class="form-control inline-control" name="pref-ordsful-autoFul-domOrder-notification" ng-model="domOrderNotification"  required required-message="validationMessages.required" ng-options="item as item.name for item in orderNotificationOptions track by item.value"></select>
+                              </div>    
+                            </div>
+                          </div>
+                          
+
+                          <div class="row padall2">
+                            <div class="col-md-1 col-sm-1 col-xs-1">
+                              <input type="checkbox" id="pref-ordsful-autoFul-intOrder" class="chkpadd" name="pref-ordsful-autoFul-intOrder" ng-model="model.isautoFulintOrder">
+                            </div>
+                            <div class="col-md-11 col-sm-11 col-xs-10">
+                              <div class="form-group">
+                                  <label class="control-label">International Orders : Hold orders above retail value greater than </label>
+                                  <select id="pref-ordsful-autoFul-intOrder-maxLimit" class="form-control inline-control" name="pref-ordsful-autoFul-intOrder-maxLimit" ng-model="intOrderMaxLimit"  required required-message="validationMessages.required" ng-options="item as item.name for item in orderMaxLimitOptions track by item.value">
+                                  <option value="">Select</option>
+                                </select> 
+                                 <label class="control-label">and notify via</label>
+                                 <select id="pref-ordsful-autoFul-intOrder-notification" class="form-control inline-control" name="pref-ordsful-autoFul-intOrder-notification" ng-model="intOrderNotification"  required required-message="validationMessages.required" ng-options="item as item.name for item in orderNotificationOptions track by item.value"></select>
+                              </div>     
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <em class="text-danger">Existing order defaults will be applied to the orders</em>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+          
+                <div class="row" >
+                  <div class="panel panel-default col-md-12 col-sm-12 col-xs-12  xstxt-padd0 smtxt-padd0 paddrgt20">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a href="javascript:;" id="pref-ordsful-printing-defaults">Printing Defaults</a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse in">
+                      <div class="panel-body padall2">
+                        <div class="col-md-7 col-sm-12 col-xs-12 xstxt-padd0 smtxt-padd0 paddrgt20 pad-bot-xs">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <div class="form-group required">
+                                    <input type="checkbox" id="pref-ordsful-isProductLabel" class="chkpadd" name="pref-ordsful-isProductLabel" ng-model="model.isProductLabel"> Product Label            
+                              </div>    
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-11 paddnone">
+                              <div class="form-group">
+                                <label for="pref-ordsful-productLabel-paperSize" class="col-md-4 col-sm-3 col-xs-12 control-label label-leftIndent">Paper Size</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 control-next-align">
+                                  <select id="pref-ordsful-productLabel-paperSize" class="form-control" name="pref-ordsful-productLabel-paperSize" ng-model="productLabelPaperSize"  required required-message="validationMessages.required" ng-options="item as item.name for item in paperSizeOptions track by item.value">
+                                  <option value="">Select</option>
+                                </select>  
+                                </div>
+                              </div>    
+                            </div>                             
+                          </div>
+                          <div class="row">
+                            <div class="col-md-11 paddnone">
+                                <div class="form-group">
+                                  <label for="pref-ordsful-productLabel-template" class="col-md-4 col-sm-3 col-xs-12 control-label label-leftIndent">Template</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-12 control-next-align">
+                                    <select id="pref-ordsful-productLabel-template" class="form-control" name="pref-ordsful-productLabel-template" ng-model="productLabelTemplate" required required-message="validationMessages.required" ng-options="item as item.name for item in templateOptions track by item.value">
+                                      <option value="">Select</option>
+                                    </select>  
+                                  </div>
+                                </div>    
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <em class="text-danger">Avery 6102 - Size of each label is 45.7mm X 21.2mm (1.8' X 0.85') with 48 per sheet</em>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 col-xs-12 paddnone">
+                           <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <div class="form-group required">
+                                    <input type="checkbox" id="pref-ordsful-isBoxLabel" class="chkpadd" name="pref-ordsful-isBoxLabel" ng-model="model.isBoxLabel"> Box Label             
+                              </div>    
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-11 paddnone">
+                              <div class="form-group">
+                               <label for="pref-ordsful-boxLabel-paperSize " class="col-md-4 col-sm-3 col-xs-12 control-label label-leftIndent">Paper Size</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12 control-next-align">
+                                  <select id="pref-ordsful-boxLabel-paperSize" class="form-control" name="pref-ordsful-boxLabel-paperSize" ng-model="boxLabelPaperSize"  required required-message="validationMessages.required" ng-options="item as item.name for item in paperSizeOptions track by item.value">
+                                  <option value="">Select</option>
+                                </select>  
+                                </div>
+                              </div>    
+                            </div>                             
+                          </div>
+                          <div class="row">
+                            <div class="col-md-11 paddnone">
+                                <div class="form-group">
+                                  <label for="pref-ordsful-boxLabel-template" class="col-md-4 col-sm-3 col-xs-12 control-label label-leftIndent">Template</label>
+                                  <div class="col-md-6 col-sm-6 col-xs-12 control-next-align">
+                                    <select id="pref-ordsful-boxLabel-template" class="form-control" name="pref-ordsful-boxLabel-template" ng-model="boxLabelTemplate" required required-message="validationMessages.required" ng-options="item as item.name for item in templateOptions track by item.value">
+                                      <option value="">Select</option>
+                                    </select>  
+                                  </div>
+                                </div>    
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <em class="text-danger">Size of each label is 101.6mm X 152.4mm (4' X 6') with 1 per sheet. Ideal for thermal printers like Zebra printers</em>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="btn-grp pull-right formbtn">
+              <div class="form-xsbtnbtm pull-right">
+                <button id="pref-ordsful-save-btm" class="btn btn-primary" type="submit">Save</a></button>
+                <button id="pref-ordsful-cancel-btm" type="button" class="btn btn-default" ng-click="back()">Cancel</button>              
+              </div>
+            </div>
+        </form>
+       </div>
+      </div>
+    </section>
+  </div>
+</div>
+</section>

@@ -1,0 +1,138 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/products/nav.html'"></ng-include>
+      <section class="content full widget-form widget-upload">
+        <h2 class="thHead">Upload Product</h2>
+          <div class="clear"></div>
+        <form role="form" class="form-horizontal">
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div
+                class="panel-heading">
+                <h4 class="panel-title">
+                  <a href="javascript:;"> Prepare your products file </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-12">To get started, please download
+                      the import template in one of the formats below. The file
+                      contains guidelines on how to fill the template. You can
+                      upload a maximum of 1000 products at one go.</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="btn-grp">
+                        <a id="product-upload-xls-download"
+                          ng-href="{{productTemplateXlsx}}" class="btn btn-primary"
+                          title="Product Template .xlsx">XLS</a> <a
+                          id="product-upload-csv-download"
+                          ng-href="{{productTemplateCsv}}" class="btn btn-primary"
+                          title="Product Template .csv">CSV</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div
+                class="panel-heading">
+                <h4 class="panel-title">
+                  <a href="javascript:;"> Upload the completed templates </a>
+                </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-12">Once you've added your products
+                      to the template, upload it here. Don't worry, if your file
+                      contains error, we will generate a status report to help you
+                      correct those errors.</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="btn-grp">
+                        <label>Locate Product File</label> <input type="file"
+                          file-model="myFile" name="myFile" id="upload-product-file" />
+                        <button type="button" class="btn btn-primary"
+                          ng-disabled="(!isUploadable && !constants.developerMode)" ng-click="uploadProducts()"
+                          id="upload-product-button">Upload Now</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" ng-if="(!isUploadable && !constants.developerMode)">
+                    <div class="col-sm-12">
+                      <em class="text-danger pull-right">Note : You can't
+                        upload another file until your previous file completes
+                        processing.</em>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div
+                class="panel-heading">
+                <h4 class="panel-title">
+                  <a href="javascript:;"> Product file upload summary </a>
+                </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                    <p>View the status of the file here.
+                      If your upload has some problems, you can download a status
+                      report which will help you to correct the errors. The same
+                      file can be upload again in Step 2.</p></div>
+                  </div>
+                  <div class="newGridContainer container-fluid">
+                    <!-- header -->
+                    <div class="row proHeader">
+                      <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">Date
+                        & Time</div>
+                      <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">File
+                        Name</div>
+                      <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">Result</div>
+                      <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">Status</div>
+                    </div>
+                    <div class="clear"></div>
+
+                    <div class="row proRow" ng-repeat="data in myData">
+                      <!-- Date & Time -->
+                      <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+                        <span class="" ng-bind="data.duTxnCreatedDate|| constants.notAvailable"></span>
+                      </div>
+
+                      <!-- File Name -->
+                      <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+                        <span class="" ng-bind="data.duTxnFile || constants.notAvailable"></span>
+                      </div>
+
+                      <!-- Result -->
+                      <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+                        <span class="" ng-bind="(data.duTxnErrorMessage != 0 && data.duTxnErrorMessage) ? data.duTxnErrorMessage : constants.notAvailable"></span>
+                      </div>
+
+                      <!-- Status -->
+                      <div class="col-sm-3 col-md-3 col-lg-3 col-xs-12">
+                        <span class="{{data.duTxnFileStatus == 0 ? '' : (data.duTxnFileStatus == 1 ? 'text-success' : 'text-danger')}}" ng-bind="data.duTxnFileStatus == 0 ? 'Processing' : (data.duTxnFileStatus == 1 ? 'Successful' : 'Failed')"></span><a ng-show="(data.duTxnFileStatus==2 || data.duTxnFileStatus==3)" id="{{'product-upload-status-' + data.duTxnId}}" ng-href="{{data.duTxnErrorFiles3 || constants.notAvailable}}" title="Report"> Report</a>
+                      </div>
+                    </div>
+                    <div class="row proRow" ng-if="!myData.length">
+                      <div class="noRecordDisplay col-sm-12 col-md-12 col-lg-12">
+                        No data to display</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</section>

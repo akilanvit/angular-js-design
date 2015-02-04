@@ -1,0 +1,385 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/shipments/nav.html'"></ng-include>
+      <section class="content full">
+        <h2 class="thHead">Manage Shipments</h2>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="padd0 col-sm-8 col-lg-8">
+              <div
+                class="thHeadIco glyphicon glyphicon-share-car col-lg-1 col-sm-1 hidden-xs">
+              </div>
+              <div class="thContent col-lg-11 col-sm-10 ">
+              Create, manage
+                and track shipments here. Shipment consists of a list of active
+                products and corresponding quantity that you wish to send to us.
+                Create a shipment manually or by uploading a file. Once a
+                shipment is created and approved, shipment status and product
+                inventory levels will be updated once the warehouse has
+                successfully received your complete shipment.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <h4 class="sub-head thSubHead">Search Shipments</h4>
+        <form class="form-inline" role="form">
+          <div class="row padBtm15px">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="sr-only" for="shipment-search-text">Search
+                  Shipments</label>
+                <div class="input-group selectboxhldr">
+                  <div class="thAll" multi-select
+                    input-model="shipmentFilterOptions" button-label="name"
+                    item-label="name" tick-property="ticked"
+                    selection-mode="single" helper-elements=""
+                    output-model="searchColumn" id="shipment-search-column"></div>
+                  <input type="text" class="thSearch form-control"
+                    id="shipment-search-text" placeholder="Search Shipment"
+                    ng-model="searchKey"
+                    ng-focus="findSuggestion(searchKey, searchColumn)"
+                    ng-change="findSuggestion(searchKey, searchColumn)">
+                </div>
+                <div class="list-group suggestion-box"
+                  id="shipment-search-suggestion" ng-if="suggestions.length">
+                  <a ng-repeat="suggest in suggestions"
+                    ng-href="#/shipments/view/{{suggest.inboundCode}}"
+                    class="list-group-item"> <span
+                    ng-bind-html="highlightSuggest(suggest.planName, searchKey)"></span>
+                    <em
+                    ng-bind-html="'SHIPMENT ID: ' + highlightSuggest(suggest.inboundCode, searchKey) + ','"></em>
+                    <em
+                    ng-bind-html="'PRODUCT ID: ' + highlightSuggest(suggest.inbProductIds, searchKey)"></em>
+                    <em
+                    ng-bind-html="'EZY-SKU: ' + highlightSuggest(suggest.inbPrdSkus, searchKey) + ','"></em>
+                    <em
+                    ng-bind-html="'SKU: ' + highlightSuggest(suggest.inbMerchantSkus, searchKey)"></em>
+                  </a>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="shipment-search-text">Created
+                  Date Range</label>
+                <div class="input-group product-date thCreDate">
+                  <div multi-select input-model="dateOptions" output-model="date"
+                    button-label="name" item-label="name" tick-property="ticked"
+                    selection-mode="single" helper-elements="none"
+                    default-label="Created Date Range" disable-property="label"
+                    id="shipment-date-range"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group thAppFil">
+                  <button class="btn btn-primary thButton"
+                    ng-click="applyFilter()" id="shipment-search-apply">Apply
+                    Filter</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group thAppRst">
+                  <button class="btn btn-default" ng-click="resetFilter()"
+                    id="shipment-filter-reset">Reset</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!--<div class="col-sm-4">-->
+            <div class="col-sm-2 col-lg-4 actions">
+              <div class="form-group">
+                <label class="sr-only" for="searchProducts">Actions</label> <label
+                  class="rowCount" ng-if="gridOptions.selectedItems.length">{{gridOptions.selectedItems.length}}
+                  row(s) selected</label>
+                <div class="input-group">
+                  <!-- <input type="checkbox" name="action" /> -->
+                  <div class="btn-group thAppAct">
+                    <button type="button" class="btn btn-primary dropdown-toggle"
+                      data-toggle="dropdown" id="shipment-search-action"
+                      ng-disabled="isOptionVisible('action')">
+                      Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li ng-if="isOptionVisible('cancel')"><a
+                        href="javascript:;" id="shipment-action-cancel">Cancel</a></li>
+                      <li ng-if="isOptionVisible('restore')"><a
+                        href="javascript:;" id="shipment-action-restore">Restore</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group thDateFrom" ng-show="date[0].value=='custom'">
+                <label class="sr-only" for="shipment-search-fromdate">From
+                  Date</label>
+                <div class="input-group">
+                  <input type="text" class="form-control"
+                    id="shipment-search-fromdate" ng-model="fromdate"
+                    data-date-format="dd/mm/yyyy" readonly /> <label
+                    class="input-group-addon" for="shipment-search-fromdate"><i
+                    class="glyphicon glyphicon-calendar"></i> </label>
+                </div>
+
+              </div>
+              <div class="form-group thDateTo" ng-show="date[0].value=='custom'">
+                <label class="sr-only" for="shipment-search-todate">To
+                  Date</label>
+                <div class="input-group">
+                  <input type="text" class="form-control"
+                    id="shipment-search-todate" ng-model="todate"
+                    data-date-format="dd/mm/yyyy" readonly /> <label
+                    class="input-group-addon" for="shipment-search-todate"><i
+                    class="glyphicon glyphicon-calendar"></i> </label>
+                </div>
+              </div>
+
+              <span class="rowSelectedTxt" ng-if="showSelected">
+                <span ng-bind="showSelectedLength"></span> row(s) selected
+              </span>
+            </div>
+
+      
+         <!-- pagination starts -->
+          <div class="col-sm-10 col-lg-8">
+            <div class="pull-right">
+          <div class="showingPage pull-left" ng-if="myData.length">
+            Showing {{fromRecord}}-{{toRecord}} of {{totalRecord}} shipments
+          </div>
+          
+          <div class="views pull-left" ng-if="myData.length">
+             view <select ng-model="pagingOptions.pageSize" class="showingView">
+                    <option ng-repeat="size in pagingOptions.pageSizes">{{size}}</option>
+                  </select> per page
+          </div>
+          
+          <div class="pagingout pull-left">
+            
+            <ul class="pagingContainer" ng-if="myData.length">
+              <li><a href="javascript:void(0)" class="pageFirst"><span ng-click="paging(1)">&lt;&lt;</span></a></li>
+              <li><a href="javascript:void(0)" class="paging"><span ng-click="paging(pagingOptions.currentPage-1)">&lt;</span></a></li>
+
+              <li ng-repeat="pageSizeClicks in pageSize.pageSizeClickLength" ng-class="{pageHighLight:pageSizeClicks == pagingOptions.currentPage}">
+                <a ng-class="{pageHighLightColor:pageSizeClicks == pagingOptions.currentPage}" href="javascript:void(0);" ng-click="paging(pageSizeClicks)">
+                  <span>{{pageSizeClicks}}</span>
+                </a>
+              </li>
+
+              <li><a href="javascript:void(0)" class="paging"><span ng-click="paging(pagingOptions.currentPage+1)">&gt;</span></a></li>
+              <li><a href="javascript:void(0)" class="pageLast"><span ng-click="paging(pagingOptions.currentPage+1, 'last')">&gt;&gt;</span></a></li>
+            </ul>
+             
+          </div>
+          
+          <div class="sort txtRight pull-left">
+            
+            <div class="form-group">
+              <label class="sr-only" for="searchProducts" ng-bind="'Sort By: ' + sortingOptions.name">Sort By: Date Created</label>
+              
+                <div class="input-group">
+                  <!-- <input type="checkbox" name="action" /> -->
+                  <div class="btn-group thAppAct thAppSort">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="product-sort-category">
+                      Sort By : <span ng-bind="sortingOptions.name"></span>
+                    </button>
+                    <button type="button" class="btn btn-primary" id="product-sort-action" ng-click="sortDirection()">
+                      <span ng-class="{'glyphicon glyphicon-sort-cat':!sortLogo(),'glyphicon glyphicon-sort-cat-asc':sortLogo()}"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li ng-click="sort('createdDate', 'Date Created')"><a href="javascript:;" id="product-action-create-shipment">Date Created</a></li>
+                      <li ng-click="sort('inboundCode', 'Shipment ID')"><a href="javascript:;" id="product-action-create-shipment">Shipment ID</a></li>
+                      <li ng-click="sort('planName','Plan Name')"><a href="javascript:;" id="product-action-create-fulfillment">Plan Name</a></li>
+                      <li ng-click="sort('labelBy','Who Labels?')"><a href="javascript:;" id="product-action-create-shipment">Who Labels?</a></li>
+                      <li ng-click="sort('remarks','Remarks')"><a href="javascript:;" id="product-action-create-fulfillment">Remarks</a></li>
+                    </ul>
+                  </div>
+                  
+                </div>
+            </div>
+          </div>
+          </div>
+            </div>
+
+          </div>
+        </form>
+        <div class="widget-table">
+          <div class="newGridContainer container-fluid">
+
+            <div class="row proHeader">
+              <div class="proShipHeaEditH col-xs-12 col-sm-1 col-md-1">
+                <div class="checkboxFive">
+                  <input type="checkbox" value="" id="" name="" ng-click="toggleCheckBox()" ng-model="toggleCheckBoxVal" />
+                </div>
+              </div>
+              <div class="proShipHeaMerH col-xs-12 col-sm-5 col-md-3">Shipment ID</div>    
+              <div class="proShipHeaCatH col-xs-12 col-sm-3 col-md-2">Product Details</div>      
+              <div class="proShipHeaDimH col-xs-12 col-sm-3 col-md-2" ng-show="isOptionVisible('shipFrom')">Ship from address</div>  
+              <div class="proShipHeaDimH col-xs-12 col-sm-3 col-md-2" ng-show="isOptionVisible('arrivalDetails')">Arrival Details</div>    
+              <div class="proShipHeaDateH col-xs-12 col-sm-5 col-md-2" ng-show="isOptionVisible('receivedDetails')">Received Details</div>
+               <div class="proShipHeaDateH col-xs-12 col-sm-5 col-md-2" ng-show="isOptionVisible('inventoryReceived')">Inventory Received</div>
+              <div class="proShipHeaDateH col-xs-12 col-sm-6 col-md-2" ng-show="isOptionVisible('date')">Date</div>
+              <div class="proShipHeaDateH col-xs-12 col-sm-6 col-md-2" ng-show="isOptionVisible('dateCancelled')">Date</div>
+              <div class="proShipHeaAleH col-xs-12 col-sm-4 col-md-2" ng-show="isOptionVisible('labelBy')">Label by</div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="row proRow" ng-repeat="shipment in myData" ng-class="{rowSelected:shipment.Selected}">
+                <div class="proShipHeaEdit col-xs-12 col-sm-1 col-md-1">
+                  <div class="checkboxFive">
+                    <input type="checkbox" value="" id="" name="" ng-model="shipment.Selected" />
+                  </div>
+                </div>
+              <!-- Shipment ID -->
+                <div class="proShipHeaMer col-xs-12 col-sm-5 col-md-3">
+                  <div class="skU">
+                    <span class="eEan1">
+                      <span  data-toggle="tooltip" data-placement="top" title="Shipment Inbound ID" ng-bind="shipment.inboundCode || constants.notAvailableTextText | addEllipse:10"></span>
+                    </span>
+                    <div class="editFlight1">
+                      <!--<span class="glyphicon glyphicon-remove-red-eye"></span>-->
+                      <!--#/shipments/view/{{suggest.inboundCode}}-->
+                      <a ng-show="isOptionVisible('othersView')" id="shipment-send-cancel-top" ng-href="#/shipments/view/{{shipment.inboundCode}}">
+                        <span data-toggle="tooltip" data-placement="top" title="View" class="glyphicon glyphicon-view-grid"></span>
+                      </a>
+                      <a ng-show="isOptionVisible('pendingEdit')" id="shipment-send-cancel-top" ng-href="#/shipments/edit/{{shipment.inboundCode}}">
+                        <span data-toggle="tooltip" data-placement="top" title="Edit" class="glyphicon glyphicon-edit-grid"></span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="proShipName">
+                      <span class="">
+                        <span data-toggle="tooltip" data-placement="top" title="Shipment Plane Name" ng-bind="shipment.planName || constants.notAvailableTextText | addEllipse:25"></span>
+                      </span>
+                  </div>
+                  <div class="eSkuShip">
+                    Remarks : <span ng-bind="shipment.remarks || constants.notAvailableText | addEllipse:20"></span>
+                  </div>
+               </div>  
+
+              <!-- product details -->
+
+              <div class="proShipHeaCat col-xs-12 col-sm-3 col-md-2">    
+                <div class="proShipName">
+                  <span class="">SKUs : <span ng-bind="shipment.numberOfProducts || constants.notAvailableText | addEllipse:20"></span></span>
+                </div>
+                <div class="eSkuShip">
+                 <span class="">
+                    Total units : <span ng-bind="shipment.numberOfUnits || constants.notAvailableText |  addEllipse:20"></span>
+                  </span>
+                </div>
+              </div>    
+
+              <!-- ship from address-->
+
+              <div class="proShipHeaDim col-xs-12 col-sm-3 col-md-2" ng-show="isOptionVisible('shipFrom')">
+                <div class="proShipName">
+                  <span class="">
+                    <span ng-bind="shipment.fromName|| constants.notAvailableText"></span>
+                    <span ng-bind="shipment.lastName"></span>
+                  </span>
+                </div>
+                <div class="proShipName2">
+                  <span class=""><span ng-bind="shipment.address1 || constants.notAvailableText | addEllipse:12"></span>
+                  </span>
+                </div>
+                <div class="proShipName2">
+                  <span class=""><span ng-bind="shipment.addressCountry || constants.notAvailableText"></span> -
+                  <span ng-bind="shipment.addressPostalCode || constants.notAvailableText"></span>
+                  </span>
+                </div>
+              </div>  
+
+               <!-- Arrival date optional -->
+              <div class="proShipHeaDim col-xs-12 col-sm-3 col-md-2" ng-show="isOptionVisible('arrivalDetails')">
+                <div class="eSkuShip">
+                  <span class="">Carrier : {{shipment.carrierName|| constants.notAvailableText}} , {{shipment.cartonsCount|| constants.notAvailableText}} cartons
+                  </span>
+                </div>
+                <div class="proShipName">
+                  <span class="">Expected : {{shipment.estShipDate|| constants.notAvailableText}}
+                  </span>
+                </div>
+              </div>  
+
+              <!-- Recieved details -->
+
+              <div class="proShipHeaDim col-xs-12 col-sm-3 col-md-2" ng-show="isOptionVisible('receivedDetails')">
+                <div class="eSkuShip">
+                  <span class="">{{ shipment.cartonsCount|| constants.notAvailableText}} cartons
+                  </span>
+                </div>
+                <div class="proShipName">
+                  <span class="">Received : {{shipment.receivedDate|| constants.notAvailableText}}
+                  </span>
+                </div>
+              </div>  
+
+
+              <!-- Inventory Received -->
+
+              <div class="proShipHeaDim col-xs-12 col-sm-3 col-md-2" ng-show="isOptionVisible('inventoryReceived')">
+                <div class="proShipName1">
+                  <span class="">Received : {{shipment.receivedQty|| constants.notAvailableText}}
+                  </span>
+                </div>
+                <div class="dam txtItalic fullColor">
+                  <span class="fullFill fullColor">Fulfillable : {{shipment.fulFilQty|| constants.notAvailableText}} 
+                  </span>
+                  <span class="dam txtItalic damColor">
+                  Damaged : {{shipment.quarantinedQty || constants.notAvailableText}}
+                  </span>
+                </div>
+                <div class="dam txtItalic blueColor">
+                  <span class="">Labelled : {{shipment.labelQuantity|| constants.notAvailableText}}
+                  </span>
+                </div>
+              </div>  
+
+              <!-- date1-->
+              <div class="proShipHeaDate col-xs-12 col-sm-9 col-md-3" ng-show="isOptionVisible('date')">
+                <div class="proShipName">
+                  Created : {{shipment.createdDate || constants.notAvailableText}}
+                </div>
+                <div class="eSkuShip">
+                  Modified : {{shipment.modifiedDate || constants.notAvailableText}}
+                </div>
+              </div>
+
+               <!-- date2-->
+              <div class="proShipHeaDate col-xs-12 col-sm-9 col-md-3" ng-show="isOptionVisible('dateCancelled')">
+                <div class="proShipName">
+                  Cancelled : {{shipment.cancelledDate || constants.notAvailableText}}
+                </div>
+                <div class="eSkuShip">
+                  Created : {{shipment.createdDate || constants.notAvailableText}}
+                </div>
+              </div>
+
+          <!--label by-->
+
+              <div class="proShipHeaInv col-xs-12 col-sm-3 col-md-1" ng-show="isOptionVisible('labelBy')">
+                 <span class="eSkuShip">{{getLabelDisplayValue(shipment.labelBy) || constants.notAvailableText}}
+                 </span>
+              </div>
+
+            </div>
+
+             <div class="row proRow" ng-if="!myData.length">
+            
+                <div class="noRecordDisplay col-sm-12 col-md-12 col-lg-12">
+                  No data to display
+                </div>
+                
+              </div>
+              
+              
+              <div class="clearfix"></div>
+
+            </div>
+
+          </div>
+      </section>
+    </div>
+  </div>
+</section>

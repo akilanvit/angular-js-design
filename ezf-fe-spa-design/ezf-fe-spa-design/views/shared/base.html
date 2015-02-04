@@ -1,0 +1,26 @@
+<div id="page-overlay" class="overlay" ng-show="activateOverlay"><i class="glyphicon glyphicon-cog spin"></i></div>
+<toaster-container  toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
+	  
+<!-- model starts -->
+<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <p>You have unsaved changes</p>
+                </div>
+                
+				<div class="modal-body">
+                    <p>Are you sure you want to leave this page? </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default modelButtonCancel" data-dismiss="modal" id="modalCancel">Cancel</button>
+					<button type="button" class="btn btn-danger danger thButton modelButtonOk" id="createOk">OK</button>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- model ends -->
+
+<div notification-messages class="notificationContainer"></div>

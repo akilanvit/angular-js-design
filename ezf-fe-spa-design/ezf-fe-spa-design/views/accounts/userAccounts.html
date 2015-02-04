@@ -1,0 +1,97 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form" class="form-horizontal" name="edit_product"
+              novalidate angular-validator angular-validator-submit="">
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="pull-left">User Accounts</h2>
+                </div>
+              </div>
+               <div class="row">
+                <div class="col-sm-12">
+                  <h4 class="pull-left">Master Account : beth@gmail.com</h4>
+                </div>
+              </div>
+              <p>
+              <div class="row">
+                <div class="col-sm-3">
+                  <a href="#/accounts/newSubAccount">
+                    <button class="btn btn-success">Add new sub-account</button>
+                  </a>
+                </div>
+              </div>
+              </p>
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div data-toggle="collapse" data-target="#collapseOne"
+                    class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="javascript:;" id="product-edit-product-defaults">
+                        User Accounts </a>
+                       <label class="pull-right">
+                        <input type="checkbox" id="accounts-connections-showInactive" name="accounts-connections-showInactive"> Show Inactive
+                      </label>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="table-responsive">
+                        <table
+                          class="table table-hover table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Email / User ID</th>
+                              <th>Active</th>
+                              <th>Last Login</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                              <td>John</td>
+                              <td>john@gmail.com</td>
+                              <td><span
+                                  class="glyphicon glyphicon-ok" style="color:green"></span> </td>
+                              <td>13/04/15</td>
+                              <td>
+                                <a href="#/accounts/editSubAccount" title="Edit"><span
+                                  class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="#/products/edit/EZT001" title="Delete"><span
+                                  class="glyphicon glyphicon-trash"></span></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Mathew Jones</td>
+                              <td>math@gmail.com</td>
+                              <td><span
+                                  class="glyphicon glyphicon-remove" style="color:red"></span> </td>
+                              <td>11/03/15</td>
+                              <td>
+                                  <a href="#/accounts/editSubAccount" title="Edit"><span
+                                  class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="#/accounts/editSubAccount" title="Delete"><span
+                                  class="glyphicon glyphicon-trash"></span></a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

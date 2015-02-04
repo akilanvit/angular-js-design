@@ -1,0 +1,113 @@
+<section class="container-fluid" ng-init="init()">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-include src="'views/accounts/nav.html'"></ng-include>
+      <section class="content full">
+        <div class="row">
+          <div class="col-sm-12">
+            <form role="form" class="form-horizontal" name="create_product"
+              novalidate angular-validator
+              angular-validator-submit="createProduct(create_product)">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="pull-left">Download Payments File</h2>
+                </div>
+              </div>
+              <p>Here you can download all transactions by specifying a custom date range. Maximum date range allowed is 12 months from the current date. Please call client service and raise a request if you need older records.</p>
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div data-toggle="collapse" data-target="#collapseOne"
+                    class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="javascript:;" id="product-create-basic-information">Filter
+                        Payments</a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="row">
+                            <label for="product-create-merchantSku"
+                              class="col-sm-5 control-label">Payments Date
+                              Range</label>
+                            <div class="col-sm-7">
+                              <input name="product-create-merchantSku" type="text"
+                                class="form-control" id="product-create-merchantSku"
+                                placeholder="Date Range" ng-model="model.skuCategory"
+                                required required-message="validationMessages.required" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="btn-grp">
+                            <button type="button" class="btn btn-primary">Clear
+                              Filter</button>
+                            <button type="button" class="btn btn-default">Download</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div data-toggle="collapse" data-target="#collapseOne"
+                    class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="javascript:;" id="product-create-basic-information">Payments
+                        File Download Summary</a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p>You can download upto 10 previously generated files</p>
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <table
+                          class="table table-hover table-bordered table-striped">
+                          <thead>
+                            <tr>
+                              <th>Date & Time</th>
+                              <th>Filters Used</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                              <td>22/07/14 9:16 SST</td>
+                              <td>Date Range, 11/06/14 - 19/08/14</td>
+                              <td><a href="#/products/view/EZT001" title="EZT001">Download</a></td>
+                            </tr>
+                            <tr>
+                              <td>22/07/14 9:16 SST</td>
+                              <td>Date Range, 11/06/14 - 19/08/14</td>
+                              <td><a href="#/products/view/EZT001" title="EZT001">Download</a></td>
+                            </tr>
+                            <tr>
+                              <td>22/07/14 9:16 SST</td>
+                              <td>Date Range, 11/06/14 - 19/08/14</td>
+                              <td><a href="#/products/view/EZT001" title="EZT001">Download</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
